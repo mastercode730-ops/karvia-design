@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia · Worker dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1500px;background:#F4F6F9">
+<header style="background:#13213C">
+  <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px">
+    <a href="WorkerDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#FFFFFF"><span style="width:34px;height:34px;border-radius:10px;background:#F4A51C;color:#13213C;display:flex;align-items:center;justify-content:center;font:800 20px 'Baloo 2',sans-serif">K</span><span style="font:800 24px 'Baloo 2',sans-serif">karvia</span><span style="font-size:13px;font-weight:600;padding:3px 8px;border-radius:6px;background:#22314F;color:#F4A51C">WORKER</span></a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;flex:1 1 520px;font-weight:500;font-size:15px">
+      <a href="WorkerDashboard.dc.html" style="padding:9px 12px;border-radius:9px;background:#22314F;color:#FFFFFF;font-weight:700;text-decoration:none">Dashboard</a>
+      <a href="WorkerJobs.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Requests &amp; jobs</a>
+      <a href="WorkerPricing.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Services &amp; pricing</a>
+      <a href="WorkerProfileEdit.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Profile</a>
+      <a href="WorkerDocuments.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Documents</a>
+      <a href="WorkerSubscription.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">My plan</a>
+      <a href="WorkerReviews.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Reviews</a>
+    </nav>
+    <span style="width:40px;height:40px;border-radius:50%;background:#DCE7F5;color:#13213C;display:flex;align-items:center;justify-content:center;font-weight:700">RY</span>
+  </div>
+</header>
+
+<main style="max-width:1240px;margin:0 auto;padding:28px 24px 56px;display:flex;flex-direction:column;gap:18px">
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:stretch">
+    <section style="flex:2 1 520px;min-width:0;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:20px;padding:24px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <p style="color:#5E6B7D">Namaste, Rakesh</p>
+        <h1 style="font-size:36px;font-weight:800">{{statusTitle}}</h1>
+        <p style="color:#3D4A5C">{{statusNote}}</p>
+      </div>
+      <button onClick="{{toggle}}" aria-pressed="{{available}}" style="{{toggleStyle}}"><span style="{{knobStyle}}"></span><span>{{toggleLabel}}</span></button>
+    </section>
+    <section style="flex:1 1 300px;min-width:0;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><b>Eligibility</b><span style="font-size:12px;font-weight:700;padding:3px 8px;border-radius:999px;background:#E3F2EC;color:#0B6E4F">ELIGIBLE</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:14px"><span>Verified</span><b style="color:#0B6E4F">✓ Yes</b></div>
+      <div style="display:flex;justify-content:space-between;font-size:14px"><span>Plan</span><b style="color:#0B6E4F">Trial · 3 days left</b></div>
+      <div style="display:flex;justify-content:space-between;font-size:14px"><span>Availability</span><b>{{availWord}}</b></div>
+      <div style="display:flex;justify-content:space-between;font-size:14px"><span>Service area</span><b>5 KM of job</b></div>
+    </section>
+  </div>
+
+  <sc-if value="{{showOffer}}" hint-placeholder-val="{{ true }}">
+    <section style="background:#FFFFFF;border:2px solid #F4A51C;border-radius:20px;padding:24px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;box-shadow:0 18px 40px -22px rgba(19,33,60,.35)">
+      <div style="width:96px;height:96px;border-radius:50%;border:7px solid #F4E6C6;border-top-color:#F4A51C;border-right-color:#F4A51C;display:flex;align-items:center;justify-content:center;font:800 28px 'Baloo 2',sans-serif;flex:none">0:38</div>
+      <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:13px;font-weight:700;color:#8A5A00;letter-spacing:.06em">NEW REQUEST · INSTANT</span>
+        <h2 style="font-size:26px">Tap / leak repair · Sector 62</h2>
+        <p style="color:#3D4A5C">1.2 KM away · Today, as soon as possible · "Kitchen tap leaking from base" · 1 photo</p>
+        <p style="font-size:14px;color:#5E6B7D">Your rates apply: ₹300 visit + ₹500 first hour. Exact address shared after you accept.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button onClick="{{reject}}" style="padding:16px 22px;border-radius:14px;border:1px solid #CBD2DB;background:#FFFFFF;font:700 17px Hind,sans-serif;color:#13213C;cursor:pointer">Reject</button>
+        <button onClick="{{accept}}" style="padding:16px 30px;border-radius:14px;border:0;background:#0B6E4F;color:#FFFFFF;font:700 17px Hind,sans-serif;cursor:pointer">Accept job</button>
+      </div>
+    </section>
+  </sc-if>
+  <sc-if value="{{showAccepted}}" hint-placeholder-val="{{ false }}">
+    <section style="background:#E3F2EC;border:2px solid #0B6E4F;border-radius:20px;padding:22px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+      <div><h2 style="font-size:24px;color:#0B6E4F">You got the job</h2><p>Priya S. · B-204, Sector 62 · Call and chat are now open.</p></div>
+      <a href="WorkerJobs.dc.html" style="padding:13px 20px;border-radius:12px;background:#0B6E4F;color:#FFFFFF;text-decoration:none;font-weight:700">Open job</a>
+    </section>
+  </sc-if>
+  <sc-if value="{{showRejected}}" hint-placeholder-val="{{ false }}">
+    <section style="background:#FFFFFF;border:1px dashed #CBD2DB;border-radius:20px;padding:20px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+      <p style="color:#3D4A5C">Request skipped. It stays open for other workers. Rejecting doesn't lower your rating.</p>
+      <button onClick="{{reset}}" style="padding:10px 14px;border-radius:10px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 14px Hind,sans-serif;color:#13213C;cursor:pointer">Show sample request again</button>
+    </section>
+  </sc-if>
+  <sc-if value="{{showBusy}}" hint-placeholder-val="{{ false }}">
+    <section style="background:#FFFFFF;border:1px dashed #CBD2DB;border-radius:20px;padding:20px"><p style="color:#3D4A5C">You are BUSY. No new requests will be sent until you switch to AVAILABLE. Accepted jobs continue as normal.</p></section>
+  </sc-if>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px">
+    <a href="WorkerJobs.dc.html" style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:16px;text-decoration:none;color:#13213C"><span style="font-size:14px;color:#5E6B7D">New requests</span><b style="display:block;font:800 30px 'Baloo 2',sans-serif;color:#8A5A00">1</b></a>
+    <a href="WorkerJobs.dc.html" style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:16px;text-decoration:none;color:#13213C"><span style="font-size:14px;color:#5E6B7D">Accepted</span><b style="display:block;font:800 30px 'Baloo 2',sans-serif;color:#0B6E4F">2</b></a>
+    <a href="WorkerJobs.dc.html" style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:16px;text-decoration:none;color:#13213C"><span style="font-size:14px;color:#5E6B7D">Upcoming</span><b style="display:block;font:800 30px 'Baloo 2',sans-serif;color:#1D4ED8">3</b></a>
+    <a href="WorkerJobs.dc.html" style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:16px;text-decoration:none;color:#13213C"><span style="font-size:14px;color:#5E6B7D">Completed</span><b style="display:block;font:800 30px 'Baloo 2',sans-serif">64</b></a>
+    <a href="WorkerReviews.dc.html" style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:16px;text-decoration:none;color:#13213C"><span style="font-size:14px;color:#5E6B7D">Rating</span><b style="display:block;font:800 30px 'Baloo 2',sans-serif">4.8 ★</b></a>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+    <section style="flex:2 1 520px;min-width:0;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:4px">
+      <div style="display:flex;justify-content:space-between;padding-bottom:8px"><h2 style="font-size:22px">Today &amp; upcoming</h2><a href="WorkerJobs.dc.html" style="font-weight:600">All jobs</a></div>
+      <div style="display:flex;gap:14px;align-items:center;padding:12px 0;border-top:1px solid #E3E6EB"><b style="width:70px">2:00 PM</b><span style="flex:1">Bathroom fitting · Vikas S. · Sector 61</span><span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E8EEFC;color:#1D4ED8">CONFIRMED</span></div>
+      <div style="display:flex;gap:14px;align-items:center;padding:12px 0;border-top:1px solid #E3E6EB"><b style="width:70px">Sat 10 AM</b><span style="flex:1">Tap repair · Priya S. · Sector 62</span><span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E8EEFC;color:#1D4ED8">CONFIRMED</span></div>
+      <div style="display:flex;gap:14px;align-items:center;padding:12px 0;border-top:1px solid #E3E6EB"><b style="width:70px">Mon 9 AM</b><span style="flex:1">Emergency visit · Neha G. · Sector 50</span><span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#FFF3DC;color:#8A5A00">AWAITING CLIENT</span></div>
+    </section>
+    <section style="flex:1 1 300px;min-width:0;background:#FFF3DC;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px">
+      <b style="font:700 20px 'Baloo 2',sans-serif">Trial ends in 3 days</b>
+      <p style="font-size:15px;line-height:1.5">After that, take the ₹199 / 30-day plan to keep getting requests. Nothing is charged automatically.</p>
+      <a href="WorkerSubscription.dc.html" style="align-self:flex-start;padding:11px 16px;border-radius:10px;background:#13213C;color:#FFFFFF;text-decoration:none;font-weight:600">See plan</a>
+    </section>
+  </div>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  constructor(p){ super(p); this.state = { available: true, offer: 'open' }; }
+  renderVals() {
+    const a = this.state.available, o = this.state.offer;
+    return {
+      available: a ? 'true' : 'false',
+      statusTitle: a ? 'You are AVAILABLE' : 'You are BUSY',
+      statusNote: a ? 'New requests within 5 KM will reach you.' : 'No new requests. Turn on when you are free.',
+      toggleLabel: a ? 'AVAILABLE' : 'BUSY',
+      availWord: a ? 'Available' : 'Busy',
+      toggleStyle: 'display:flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:999px;border:0;cursor:pointer;font:800 18px Hind,sans-serif;letter-spacing:.04em;color:#FFFFFF;background:' + (a ? '#0B6E4F' : '#5E6B7D'),
+      knobStyle: 'width:34px;height:34px;border-radius:50%;background:#FFFFFF;display:block',
+      toggle: () => this.setState({ available: !a }),
+      showOffer: a && o === 'open', showAccepted: a && o === 'accepted', showRejected: a && o === 'rejected', showBusy: !a,
+      accept: () => this.setState({ offer: 'accepted' }),
+      reject: () => this.setState({ offer: 'rejected' }),
+      reset: () => this.setState({ offer: 'open' })
+    };
+  }
+}
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

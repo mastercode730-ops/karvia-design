@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia · Design system</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#FFFFFF}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="background:#FFFFFF;min-height:1800px">
+<div style="max-width:1240px;margin:0 auto;padding:48px 24px 64px;display:flex;flex-direction:column;gap:40px">
+  <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;font-weight:700;letter-spacing:.08em;color:#5E6B7D">KARVIA · DESIGN SYSTEM v1</span><h1 style="font-size:52px;font-weight:800">Simple, local, trustworthy.</h1><p style="font-size:18px;color:#3D4A5C;max-width:64ch">Green means go and verified. Marigold marks money and time. Navy is the worker and admin side. Every screen works on a phone first, with touch targets of 44 px or more.</p></div>
+
+  <section style="display:flex;flex-direction:column;gap:14px">
+    <h2 style="font-size:28px">Colour</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px">
+      <sc-for list="{{colors}}" as="c" hint-placeholder-count="12">
+        <div style="border:1px solid #E3E6EB;border-radius:12px;overflow:hidden"><div style="{{c.sw}}"></div><div style="padding:10px 12px"><b style="font-size:14px">{{c.name}}</b><p style="font-size:12px;color:#5E6B7D">{{c.hex}} · {{c.use}}</p></div></div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:14px">
+    <h2 style="font-size:28px">Type</h2>
+    <div style="display:flex;flex-direction:column;gap:12px;border:1px solid #E3E6EB;border-radius:14px;padding:22px">
+      <div style="display:flex;gap:20px;align-items:baseline;flex-wrap:wrap"><span style="width:150px;font-size:13px;color:#5E6B7D">Display · Baloo 2 800 · 64</span><span style="font:800 64px/1 'Baloo 2',sans-serif">Kaam karwao</span></div>
+      <div style="display:flex;gap:20px;align-items:baseline;flex-wrap:wrap"><span style="width:150px;font-size:13px;color:#5E6B7D">H1 · Baloo 2 800 · 40</span><span style="font:800 40px/1.1 'Baloo 2',sans-serif">My bookings</span></div>
+      <div style="display:flex;gap:20px;align-items:baseline;flex-wrap:wrap"><span style="width:150px;font-size:13px;color:#5E6B7D">H2 · Baloo 2 700 · 24</span><span style="font:700 24px/1.2 'Baloo 2',sans-serif">Services &amp; prices</span></div>
+      <div style="display:flex;gap:20px;align-items:baseline;flex-wrap:wrap"><span style="width:150px;font-size:13px;color:#5E6B7D">Body · Hind 400 · 16</span><span style="font-size:16px">Sent to 6 verified plumbers within 5 KM. The first to accept gets your job.</span></div>
+      <div style="display:flex;gap:20px;align-items:baseline;flex-wrap:wrap"><span style="width:150px;font-size:13px;color:#5E6B7D">Hindi · Hind 500 · 18</span><span style="font-size:18px;font-weight:500">नल / लीकेज मरम्मत · काम करवाओ</span></div>
+      <div style="display:flex;gap:20px;align-items:baseline;flex-wrap:wrap"><span style="width:150px;font-size:13px;color:#5E6B7D">Label · Hind 700 · 12</span><span style="font-size:12px;font-weight:700;letter-spacing:.08em">NEW REQUEST · INSTANT</span></div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:14px">
+    <h2 style="font-size:28px">Buttons &amp; inputs</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <button style="padding:14px 22px;border-radius:12px;border:0;background:#0B6E4F;color:#FFFFFF;font:700 16px Hind,sans-serif">Primary · Accept job</button>
+      <button style="padding:14px 22px;border-radius:12px;border:0;background:#13213C;color:#FFFFFF;font:700 16px Hind,sans-serif">Dark · Continue</button>
+      <button style="padding:14px 22px;border-radius:12px;border:0;background:#F4A51C;color:#13213C;font:800 16px Hind,sans-serif">Money · Pay ₹9</button>
+      <button style="padding:14px 22px;border-radius:12px;border:1px solid #CBD2DB;background:#FFFFFF;color:#13213C;font:600 16px Hind,sans-serif">Secondary</button>
+      <button style="padding:14px 22px;border-radius:12px;border:1px solid #E7B3AE;background:#FFFFFF;color:#A3261F;font:600 16px Hind,sans-serif">Destructive</button>
+      <button disabled style="padding:14px 22px;border-radius:12px;border:0;background:#E3E6EB;color:#8A94A3;font:600 16px Hind,sans-serif">Disabled</button>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:6px"><label for="i1" style="font-weight:600;font-size:14px">Default</label><input id="i1" value="Priya Sharma" style="padding:13px;border-radius:10px;border:1px solid #CBD2DB;font:inherit"></div>
+      <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:6px"><label for="i2" style="font-weight:600;font-size:14px">Focused</label><input id="i2" value="98765 43210" style="padding:13px;border-radius:10px;border:2px solid #0B6E4F;font:inherit"></div>
+      <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:6px"><label for="i3" style="font-weight:600;font-size:14px">Error</label><input id="i3" value="12345" style="padding:13px;border-radius:10px;border:2px solid #C2362F;font:inherit"><span style="font-size:13px;color:#A3261F">Enter a 6-digit pincode</span></div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:14px">
+    <h2 style="font-size:28px">Status pills</h2>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span style="width:120px;font-size:13px;color:#5E6B7D">Booking</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#F4F6F9;color:#3D4A5C">REQUESTED</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#FFF3DC;color:#8A5A00">SEARCHING</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#FFF3DC;color:#8A5A00">SENT</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E3F2EC;color:#0B6E4F">ACCEPTED</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E8EEFC;color:#1D4ED8">CONFIRMED</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E3F2EC;color:#0B6E4F">IN PROGRESS</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#F4F6F9;color:#3D4A5C">COMPLETED</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#FBE4E2;color:#A3261F">CANCELLED</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#F4F6F9;color:#5E6B7D">EXPIRED</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#13213C;color:#FFFFFF">DISPUTED</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span style="width:120px;font-size:13px;color:#5E6B7D">Verification</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#F4F6F9;color:#3D4A5C">PENDING</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#FFF3DC;color:#8A5A00">UNDER REVIEW</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E3F2EC;color:#0B6E4F">✓ VERIFIED</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#FBE4E2;color:#A3261F">REJECTED</span>
+        <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#13213C;color:#FFFFFF">SUSPENDED</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span style="width:120px;font-size:13px;color:#5E6B7D">Availability</span>
+        <span style="padding:7px 12px;border-radius:999px;background:#0B6E4F;color:#FFFFFF;font-size:13px;font-weight:700">● AVAILABLE</span>
+        <span style="padding:7px 12px;border-radius:999px;background:#5E6B7D;color:#FFFFFF;font-size:13px;font-weight:700">● BUSY</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:14px">
+    <h2 style="font-size:28px">Core components</h2>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+      <div style="flex:1 1 340px;border:1px solid #E3E6EB;border-radius:16px;padding:18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <span style="width:56px;height:56px;border-radius:50%;background:#DCE7F5;display:flex;align-items:center;justify-content:center;font:700 18px 'Baloo 2',sans-serif">RY</span>
+        <div style="flex:1 1 160px"><b style="font:700 18px 'Baloo 2',sans-serif">Rakesh Yadav</b> <span style="font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;background:#E3F2EC;color:#0B6E4F">✓ VERIFIED</span><p style="font-size:13px;color:#5E6B7D">8 yrs · 64 jobs · 1.2 KM</p></div>
+        <div style="text-align:right"><b style="font:800 20px 'Baloo 2',sans-serif">₹300</b><p style="font-size:12px;color:#5E6B7D">per visit · ★ 4.8</p></div>
+        <span style="flex:1 1 100%;font-size:12px;color:#5E6B7D">Worker card · used in Find workers, My workers, Quotes</span>
+      </div>
+      <div style="flex:1 1 340px;border:2px solid #F4A51C;border-radius:16px;padding:18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <div style="width:64px;height:64px;border-radius:50%;border:6px solid #F4E6C6;border-top-color:#F4A51C;display:flex;align-items:center;justify-content:center;font:800 18px 'Baloo 2',sans-serif">0:38</div>
+        <div style="flex:1 1 160px"><span style="font-size:11px;font-weight:700;color:#8A5A00">NEW REQUEST</span><b style="display:block">Tap repair · 1.2 KM</b></div>
+        <span style="flex:1 1 100%;font-size:12px;color:#5E6B7D">Request offer · 60 s countdown · Accept / Reject</span>
+      </div>
+      <div style="flex:1 1 340px;background:#FFF3DC;border-radius:16px;padding:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <span style="background:#F4A51C;color:#13213C;font:800 22px 'Baloo 2',sans-serif;border-radius:10px;padding:4px 12px">₹9</span>
+        <p style="flex:1 1 180px;font-size:14px">30 days of access. No auto-renewal.</p>
+        <span style="flex:1 1 100%;font-size:12px;color:#5E6B7D">Money callout · all prices, plans, timers</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:14px">
+    <h2 style="font-size:28px">Layout rules</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;font-size:15px">
+      <div style="border:1px solid #E3E6EB;border-radius:12px;padding:16px"><b>Containers</b><p style="color:#3D4A5C;margin-top:4px">Public 1200 px · app 1240 px · admin fluid with 250 px sidebar. 24 px side padding, 16 px on phone.</p></div>
+      <div style="border:1px solid #E3E6EB;border-radius:12px;padding:16px"><b>Spacing</b><p style="color:#3D4A5C;margin-top:4px">4-based scale: 4, 8, 12, 16, 20, 24, 32, 48, 72. Cards 14–20 px radius; inputs 10 px; pills full.</p></div>
+      <div style="border:1px solid #E3E6EB;border-radius:12px;padding:16px"><b>Mobile first</b><p style="color:#3D4A5C;margin-top:4px">Every row wraps to one column under 600 px. Tables scroll inside their box. Primary action stays reachable.</p></div>
+      <div style="border:1px solid #E3E6EB;border-radius:12px;padding:16px"><b>Language</b><p style="color:#3D4A5C;margin-top:4px">English UI with Hinglish anchors (Kaam karwao / Kaam pao). Hind font covers Devanagari for full Hindi later.</p></div>
+      <div style="border:1px solid #E3E6EB;border-radius:12px;padding:16px"><b>Honesty</b><p style="color:#3D4A5C;margin-top:4px">No fake ratings, counts or badges. "New" instead of a rating when a worker has no reviews.</p></div>
+      <div style="border:1px solid #E3E6EB;border-radius:12px;padding:16px"><b>Privacy</b><p style="color:#3D4A5C;margin-top:4px">Never show exact worker address or documents. Phone numbers masked until accept.</p></div>
+    </div>
+  </section>
+</div>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const c = (name, hex, use, border) => ({ name, hex, use, sw: 'height:84px;background:' + hex + (border ? ';border-bottom:1px solid #E3E6EB' : '') });
+    return { colors: [
+      c('Karvia green', '#0B6E4F', 'primary, verified, go'),
+      c('Green tint', '#E3F2EC', 'selected, success bg', true),
+      c('Marigold', '#F4A51C', 'money, timers, plans'),
+      c('Marigold tint', '#FFF3DC', 'callouts, pending', true),
+      c('Navy ink', '#13213C', 'text, worker bar'),
+      c('Admin navy', '#0E1830', 'admin sidebar'),
+      c('Slate text', '#3D4A5C', 'body copy'),
+      c('Muted', '#5E6B7D', 'captions'),
+      c('Line', '#E3E6EB', 'borders', true),
+      c('Canvas', '#F4F6F9', 'app background', true),
+      c('Info blue', '#1D4ED8', 'confirmed, quotes'),
+      c('Alert red', '#C2362F', 'reports, cancel')
+    ] };
+  }
+}
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

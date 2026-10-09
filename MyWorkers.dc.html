@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia · My workers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1200px;background:#F4F6F9">
+<header style="background:#FFFFFF;border-bottom:1px solid #E3E6EB">
+  <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px">
+    <a href="ClientDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#13213C"><span style="width:34px;height:34px;border-radius:10px;background:#0B6E4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font:800 20px 'Baloo 2',sans-serif">K</span><span style="font:800 24px 'Baloo 2',sans-serif">karvia</span></a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;flex:1 1 480px;font-weight:500;font-size:15px">
+      <a href="ClientDashboard.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Home</a>
+      <a href="FindWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Find worker</a>
+      <a href="RequestStatus.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My requests</a>
+      <a href="MyBookings.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My bookings</a>
+      <a href="MyWorkers.dc.html" style="padding:9px 12px;border-radius:9px;background:#E3F2EC;color:#0B6E4F;font-weight:700;text-decoration:none">My workers</a>
+    </nav>
+    <a href="Payments.dc.html" style="padding:7px 12px;border-radius:999px;background:#FFF3DC;color:#8A5A00;font-size:14px;font-weight:600;text-decoration:none">₹9 access · 22 days left</a>
+  </div>
+</header>
+
+<main style="max-width:1240px;margin:0 auto;padding:28px 24px 56px;display:flex;flex-direction:column;gap:18px">
+  <div><h1 style="font-size:40px;font-weight:800">My workers</h1><p style="color:#5E6B7D;margin-top:4px">Rehire the same plumber, driver or maid in one tap. Saving a worker does not reserve them.</p></div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap">
+    <a href="#" style="padding:9px 16px;border-radius:999px;background:#13213C;color:#FFFFFF;text-decoration:none;font-weight:600">Favourites (4)</a>
+    <a href="#" style="padding:9px 16px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600">Following (2)</a>
+    <a href="#" style="padding:9px 16px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600">Previous workers (7)</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px">
+    <sc-for list="{{list}}" as="w" hint-placeholder-count="4">
+      <div style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:12px;align-items:center"><span style="width:52px;height:52px;border-radius:50%;background:#DCE7F5;display:flex;align-items:center;justify-content:center;font:700 18px 'Baloo 2',sans-serif">{{w.ini}}</span><div style="flex:1"><b style="font-size:17px">{{w.name}}</b><p style="font-size:14px;color:#5E6B7D">{{w.cat}} · ★ {{w.rating}}</p></div><span style="color:#C2362F;font-size:20px" aria-label="Favourite">♥</span></div>
+        <p style="font-size:14px;color:#3D4A5C">Last hired: {{w.last}} · {{w.times}}</p>
+        <span style="{{w.pill}}">{{w.state}}</span>
+        <div style="display:flex;gap:8px"><a href="NewRequest.dc.html" style="flex:1;padding:11px;border-radius:10px;background:#0B6E4F;color:#FFFFFF;text-decoration:none;font-weight:600;text-align:center">Send request</a><a href="WorkerProfile.dc.html" style="flex:1;padding:11px;border-radius:10px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600;text-align:center">Profile</a></div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="background:#FFFFFF;border:1px dashed #CBD2DB;border-radius:16px;padding:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <b>Not available state:</b><span style="color:#5E6B7D">If a saved worker is BUSY, unverified or their plan expired, the Send request button is disabled and we suggest similar workers nearby.</span>
+  </div>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const ok = 'align-self:flex-start;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E3F2EC;color:#0B6E4F';
+    const no = 'align-self:flex-start;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#F4F6F9;color:#5E6B7D';
+    return { list: [
+      { ini:'RY', name:'Rakesh Yadav', cat:'Plumber', rating:'4.8', last:'11 Oct', times:'3 times', state:'AVAILABLE NOW', pill:ok },
+      { ini:'SD', name:'Sunita Devi', cat:'Maid', rating:'4.9', last:'Today', times:'6 times', state:'ON A JOB', pill:no },
+      { ini:'IK', name:'Imran Khan', cat:'Driver', rating:'4.7', last:'14 Oct', times:'2 times', state:'AVAILABLE NOW', pill:ok },
+      { ini:'AM', name:'Arjun Mehta', cat:'Electrician', rating:'4.6', last:'6 Oct', times:'1 time', state:'BUSY', pill:no }
+    ] };
+  }
+}
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia · Request status</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1200px;background:#F4F6F9">
+<header style="background:#FFFFFF;border-bottom:1px solid #E3E6EB">
+  <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px">
+    <a href="ClientDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#13213C"><span style="width:34px;height:34px;border-radius:10px;background:#0B6E4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font:800 20px 'Baloo 2',sans-serif">K</span><span style="font:800 24px 'Baloo 2',sans-serif">karvia</span></a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;flex:1 1 480px;font-weight:500;font-size:15px">
+      <a href="ClientDashboard.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Home</a>
+      <a href="FindWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Find worker</a>
+      <a href="RequestStatus.dc.html" style="padding:9px 12px;border-radius:9px;background:#E3F2EC;color:#0B6E4F;font-weight:700;text-decoration:none">My requests</a>
+      <a href="MyBookings.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My bookings</a>
+      <a href="MyWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My workers</a>
+    </nav>
+    <a href="Payments.dc.html" style="padding:7px 12px;border-radius:999px;background:#FFF3DC;color:#8A5A00;font-size:14px;font-weight:600;text-decoration:none">₹9 access · 22 days left</a>
+  </div>
+</header>
+
+<main style="max-width:1240px;margin:0 auto;padding:28px 24px 56px;display:flex;flex-direction:column;gap:20px">
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:flex-end">
+    <div><p style="color:#5E6B7D">Request #KRV-10482 · Plumber · Tap / leak repair</p><h1 style="font-size:38px;font-weight:800">Request status</h1></div>
+    <a href="#" style="padding:11px 16px;border-radius:10px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600">Cancel request</a>
+  </div>
+
+  <div style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:20px;overflow-x:auto">
+    <div style="display:flex;gap:6px;align-items:center;min-width:820px;font-size:14px;font-weight:600">
+      <span style="padding:8px 12px;border-radius:9px;background:#E3F2EC;color:#0B6E4F">✓ Requested</span><span style="color:#CBD2DB">—</span>
+      <span style="padding:8px 12px;border-radius:9px;background:#E3F2EC;color:#0B6E4F">✓ Searching</span><span style="color:#CBD2DB">—</span>
+      <span style="padding:8px 12px;border-radius:9px;background:#E3F2EC;color:#0B6E4F">✓ Sent to 6</span><span style="color:#CBD2DB">—</span>
+      <span style="padding:8px 12px;border-radius:9px;background:#0B6E4F;color:#FFFFFF">Accepted</span><span style="color:#CBD2DB">—</span>
+      <span style="padding:8px 12px;border-radius:9px;background:#F4F6F9;color:#5E6B7D">Confirmed</span><span style="color:#CBD2DB">—</span>
+      <span style="padding:8px 12px;border-radius:9px;background:#F4F6F9;color:#5E6B7D">In progress</span><span style="color:#CBD2DB">—</span>
+      <span style="padding:8px 12px;border-radius:9px;background:#F4F6F9;color:#5E6B7D">Completed</span>
+    </div>
+  </div>
+
+  <span style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5E6B7D">Screen states</span>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;align-items:start">
+    <section style="background:#FFFFFF;border:1px solid #F0DDB4;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px">
+      <span style="align-self:flex-start;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#FFF3DC;color:#8A5A00">A · SEARCHING</span>
+      <div style="width:120px;height:120px;border-radius:50%;border:8px solid #F4E6C6;border-top-color:#F4A51C;align-self:center;display:flex;align-items:center;justify-content:center;font:800 30px 'Baloo 2',sans-serif">0:42</div>
+      <h2 style="font-size:22px;text-align:center">Finding a plumber near you</h2>
+      <p style="text-align:center;color:#3D4A5C">Sent to 6 verified plumbers within 5 KM. The first to accept gets your job.</p>
+    </section>
+
+    <section style="background:#FFFFFF;border:2px solid #0B6E4F;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px">
+      <span style="align-self:flex-start;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E3F2EC;color:#0B6E4F">B · ACCEPTED</span>
+      <div style="display:flex;gap:12px;align-items:center"><span style="width:56px;height:56px;border-radius:50%;background:#DCE7F5;display:flex;align-items:center;justify-content:center;font:700 18px 'Baloo 2',sans-serif">RY</span><div><b style="font-size:18px">Rakesh Yadav accepted</b><p style="font-size:14px;color:#5E6B7D">★ 4.8 · 64 jobs · 1.2 KM away</p></div></div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:6px;font-size:15px;background:#F4F6F9;border-radius:12px;padding:12px"><span>Visit charge</span><span>₹300</span><span>First hour</span><span>₹500</span><span style="color:#5E6B7D">Material</span><span style="color:#5E6B7D">Extra, at actual</span></div>
+      <a href="BookingDetail.dc.html" style="padding:14px;border-radius:12px;background:#0B6E4F;color:#FFFFFF;text-decoration:none;font-weight:700;text-align:center">Confirm booking</a>
+      <p style="font-size:13px;color:#5E6B7D">Other workers now see "Request already assigned".</p>
+    </section>
+
+    <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px">
+      <span style="align-self:flex-start;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#F4F6F9;color:#3D4A5C">C · NO WORKER YET</span>
+      <h2 style="font-size:22px">No worker accepted yet</h2>
+      <p style="color:#3D4A5C;line-height:1.5">Aapki search jaari hai. Suitable worker milte hi notify kiya jayega.</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button style="padding:13px;border-radius:12px;border:0;background:#13213C;color:#FFFFFF;font:600 15px Hind,sans-serif;cursor:pointer">Search up to 10 KM</button>
+        <a href="FindWorkers.dc.html" style="padding:13px;border-radius:12px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600;text-align:center">Pick a worker myself</a>
+        <button style="padding:13px;border-radius:12px;border:1px solid #CBD2DB;background:#FFFFFF;color:#13213C;font:600 15px Hind,sans-serif;cursor:pointer">Change time</button>
+      </div>
+    </section>
+  </div>
+
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px">
+    <h2 style="font-size:22px">Activity</h2>
+    <div style="display:grid;grid-template-columns:90px 1fr;gap:8px 16px;font-size:15px">
+      <span style="color:#5E6B7D">10:02:14</span><span>Request created · Scheduled for Sat 11 Oct, 10:00 AM</span>
+      <span style="color:#5E6B7D">10:02:15</span><span>Matching found 6 eligible plumbers within 5 KM</span>
+      <span style="color:#5E6B7D">10:02:16</span><span>Notification sent to 6 workers · 60 s window</span>
+      <span style="color:#5E6B7D">10:02:31</span><span>Mohan S. declined</span>
+      <span style="color:#5E6B7D">10:02:49</span><span><b>Rakesh Y. accepted · request locked</b></span>
+    </div>
+  </section>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

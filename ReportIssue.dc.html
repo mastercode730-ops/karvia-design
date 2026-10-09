@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia · Report a problem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1300px;background:#F4F6F9">
+<header style="background:#FFFFFF;border-bottom:1px solid #E3E6EB">
+  <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px">
+    <a href="ClientDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#13213C"><span style="width:34px;height:34px;border-radius:10px;background:#0B6E4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font:800 20px 'Baloo 2',sans-serif">K</span><span style="font:800 24px 'Baloo 2',sans-serif">karvia</span></a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;flex:1 1 480px;font-weight:500;font-size:15px">
+      <a href="ClientDashboard.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Home</a>
+      <a href="FindWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Find worker</a>
+      <a href="RequestStatus.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My requests</a>
+      <a href="MyBookings.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My bookings</a>
+      <a href="MyWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My workers</a>
+    </nav>
+    <a href="Payments.dc.html" style="padding:7px 12px;border-radius:999px;background:#FFF3DC;color:#8A5A00;font-size:14px;font-weight:600;text-decoration:none">₹9 access · 22 days left</a>
+  </div>
+</header>
+
+<main style="max-width:1240px;margin:0 auto;padding:28px 24px 56px;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+  <form style="flex:999 1 600px;min-width:0;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:18px">
+    <div><h1 style="font-size:36px;font-weight:800">Report a problem</h1><p style="color:#5E6B7D;margin-top:4px">Our team reviews every report. Add as much evidence as you can.</p></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><label for="bk" style="font-weight:600">Booking</label><select id="bk" style="padding:12px;border-radius:10px;border:1px solid #CBD2DB;font:inherit"><option>KRV-10482 · Tap / leak repair · Rakesh Yadav</option></select></div>
+    <fieldset style="border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:8px">
+      <legend style="font-weight:600;margin-bottom:8px">What went wrong?</legend>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px">
+        <label style="display:flex;gap:8px;padding:12px;border:2px solid #C2362F;border-radius:10px;background:#FBE4E2"><input type="radio" name="rs" checked> Worker did not arrive</label>
+        <label style="display:flex;gap:8px;padding:12px;border:1px solid #CBD2DB;border-radius:10px"><input type="radio" name="rs"> Accepted but cancelled</label>
+        <label style="display:flex;gap:8px;padding:12px;border:1px solid #CBD2DB;border-radius:10px"><input type="radio" name="rs"> Payment dispute</label>
+        <label style="display:flex;gap:8px;padding:12px;border:1px solid #CBD2DB;border-radius:10px"><input type="radio" name="rs"> Overcharging</label>
+        <label style="display:flex;gap:8px;padding:12px;border:1px solid #CBD2DB;border-radius:10px"><input type="radio" name="rs"> Misleading price</label>
+        <label style="display:flex;gap:8px;padding:12px;border:1px solid #CBD2DB;border-radius:10px"><input type="radio" name="rs"> Poor / wrong service</label>
+        <label style="display:flex;gap:8px;padding:12px;border:1px solid #CBD2DB;border-radius:10px"><input type="radio" name="rs"> Fake profile / info</label>
+        <label style="display:flex;gap:8px;padding:12px;border:1px solid #CBD2DB;border-radius:10px"><input type="radio" name="rs"> Fake documents</label>
+        <label style="display:flex;gap:8px;padding:12px;border:1px solid #CBD2DB;border-radius:10px"><input type="radio" name="rs"> Misconduct / harassment</label>
+        <label style="display:flex;gap:8px;padding:12px;border:1px solid #CBD2DB;border-radius:10px"><input type="radio" name="rs"> Fraud</label>
+        <label style="display:flex;gap:8px;padding:12px;border:1px solid #CBD2DB;border-radius:10px"><input type="radio" name="rs"> Unsafe behaviour / location</label>
+        <label style="display:flex;gap:8px;padding:12px;border:1px solid #CBD2DB;border-radius:10px"><input type="radio" name="rs"> Illegal service</label>
+        <label style="display:flex;gap:8px;padding:12px;border:1px solid #CBD2DB;border-radius:10px"><input type="radio" name="rs"> Other</label>
+      </div>
+    </fieldset>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><label for="amt" style="font-weight:600">Amount paid to worker (if any)</label><input id="amt" value="₹300" style="padding:12px;border-radius:10px;border:1px solid #CBD2DB;font:inherit"></div>
+      <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><label for="pm" style="font-weight:600">Paid by</label><select id="pm" style="padding:12px;border-radius:10px;border:1px solid #CBD2DB;font:inherit"><option>UPI</option><option>Cash</option></select></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px"><label for="ds" style="font-weight:600">Describe what happened</label><textarea id="ds" rows="4" style="padding:12px;border-radius:10px;border:1px solid #CBD2DB;font:inherit">Paid ₹300 advance by UPI on 10 Oct for the visit. Worker did not come on 11 Oct and is not answering.</textarea></div>
+    <div style="display:flex;flex-direction:column;gap:8px"><span style="font-weight:600">Evidence</span>
+      <div style="border:2px dashed #CBD2DB;border-radius:12px;padding:22px;text-align:center;color:#5E6B7D">Drop payment screenshot, photos, video or documents · or <a href="#">browse</a><br><span style="font-size:13px">JPG, PNG, PDF, MP4 · up to 10 MB each</span></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><span style="padding:8px 12px;border-radius:8px;background:#F4F6F9;font-size:14px">upi_receipt.jpg · 240 KB ✕</span></div>
+    </div>
+    <button type="button" style="align-self:flex-start;padding:14px 22px;border-radius:12px;border:0;background:#C2362F;color:#FFFFFF;font:700 16px Hind,sans-serif;cursor:pointer">Submit report</button>
+  </form>
+
+  <aside style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:14px">
+    <div style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px">
+      <h2 style="font-size:20px">My reports</h2>
+      <div style="padding:10px 0;border-bottom:1px solid #E3E6EB"><div style="display:flex;justify-content:space-between;gap:8px"><b>#C-2201 · Overcharging</b><span style="font-size:12px;font-weight:700;padding:3px 8px;border-radius:999px;background:#FFF3DC;color:#8A5A00">UNDER REVIEW</span></div><p style="font-size:14px;color:#5E6B7D">Opened 28 Sep · Painter</p></div>
+      <div style="padding:10px 0"><div style="display:flex;justify-content:space-between;gap:8px"><b>#C-2144 · Did not arrive</b><span style="font-size:12px;font-weight:700;padding:3px 8px;border-radius:999px;background:#E3F2EC;color:#0B6E4F">RESOLVED</span></div><p style="font-size:14px;color:#5E6B7D">Worker warned · 12 Sep</p></div>
+    </div>
+    <div style="background:#FFF3DC;border-radius:16px;padding:18px;font-size:15px;line-height:1.5">Because you paid the worker directly, Karvia can't promise an automatic refund. We can warn, suspend or block the worker and help with evidence.</div>
+  </aside>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia Admin · Worker review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1700px;background:#F4F6F9;display:flex;flex-wrap:wrap">
+<nav style="flex:1 1 230px;max-width:250px;background:#0E1830;padding:18px 12px;display:flex;flex-direction:column;gap:2px;font-size:14px">
+  <a href="AdminDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#FFFFFF;padding:4px 8px 16px"><span style="width:30px;height:30px;border-radius:8px;background:#0B6E4F;display:flex;align-items:center;justify-content:center;font:800 18px 'Baloo 2',sans-serif">K</span><span style="font:800 20px 'Baloo 2',sans-serif">karvia</span><span style="font-size:11px;font-weight:700;padding:2px 6px;border-radius:5px;background:#22314F;color:#8FD3BA">ADMIN</span></a>
+  <a href="AdminDashboard.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Dashboard</a>
+  <a href="AdminVerification.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Verification</a>
+  <a href="AdminWorkerDetail.dc.html" style="padding:9px 12px;border-radius:8px;background:#22314F;color:#FFFFFF;font-weight:700;text-decoration:none">Workers</a>
+  <a href="AdminClients.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Clients</a>
+  <a href="AdminBookings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Requests &amp; bookings</a>
+  <a href="AdminPayments.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Payments &amp; plans</a>
+  <a href="AdminComplaints.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Complaints</a>
+  <a href="AdminLeads.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Leads</a>
+  <a href="TelecallerConsole.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Telecaller view</a>
+  <span style="padding:14px 12px 4px;color:#7D8AA3;font-size:11px;font-weight:700;letter-spacing:.08em">CONFIGURATION</span>
+  <a href="AdminCategories.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Categories</a>
+  <a href="AdminMatching.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Matching rules</a>
+  <a href="AdminSettings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Business settings</a>
+  <a href="AdminRoles.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Roles &amp; audit log</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;padding:24px 28px 48px;display:flex;flex-direction:column;gap:16px">
+  <a href="AdminVerification.dc.html" style="font-weight:600;font-size:14px">← Verification queue</a>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+    <div style="display:flex;gap:14px;align-items:center"><span style="width:64px;height:64px;border-radius:50%;background:#DCE7F5;display:flex;align-items:center;justify-content:center;font:800 22px 'Baloo 2',sans-serif">RY</span><div><h1 style="font-size:30px;font-weight:800">Rakesh Yadav</h1><p style="color:#5E6B7D">Plumber · Noida Sector 63 · +91 98xxxxx210 · ID W-20931</p></div></div>
+    <span style="font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;background:#FFF3DC;color:#8A5A00">UNDER REVIEW</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+    <div style="flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:14px">
+      <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:17px">Documents</b><span style="font-size:13px;color:#5E6B7D">Private · signed URLs · view is logged</span></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
+          <div style="border:1px solid #E3E6EB;border-radius:12px;overflow:hidden"><div style="height:110px;background:repeating-linear-gradient(45deg,#E9EEF3,#E9EEF3 8px,#DCE3EA 8px,#DCE3EA 16px);display:flex;align-items:center;justify-content:center;color:#3D4A5C;font-weight:600">Aadhaar · masked</div><div style="padding:10px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:14px">Aadhaar</span><select aria-label="Aadhaar status" style="padding:6px;border-radius:7px;border:1px solid #CBD2DB;font:inherit;font-size:13px"><option>Verified</option><option>Rejected</option></select></div></div>
+          <div style="border:1px solid #E3E6EB;border-radius:12px;overflow:hidden"><div style="height:110px;background:#E9EEF3;display:flex;align-items:center;justify-content:center;color:#3D4A5C;font-weight:600">PAN</div><div style="padding:10px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:14px">PAN</span><span style="font-size:12px;font-weight:700;color:#0B6E4F">VERIFIED</span></div></div>
+          <div style="border:1px solid #E3E6EB;border-radius:12px;overflow:hidden"><div style="height:110px;background:#E9EEF3;display:flex;align-items:center;justify-content:center;color:#3D4A5C;font-weight:600">Address proof</div><div style="padding:10px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:14px">Address</span><span style="font-size:12px;font-weight:700;color:#8A5A00">PENDING</span></div></div>
+        </div>
+      </section>
+
+      <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:17px">Profile</b><a href="#" style="font-weight:600;font-size:14px">Edit on behalf of worker</a></div>
+        <div style="display:grid;grid-template-columns:160px 1fr;gap:8px 16px;font-size:14px">
+          <span style="color:#5E6B7D">Services</span><span>Tap / leak repair, Bathroom fitting, Emergency visit</span>
+          <span style="color:#5E6B7D">Experience</span><span>8 years · ITI Plumbing 2015</span>
+          <span style="color:#5E6B7D">Pricing</span><span>₹300 visit · ₹500 first hr · ₹250 extra hr · ₹700 emergency</span>
+          <span style="color:#5E6B7D">Work history</span><span>Shree Builders 2019–23 · Self-employed 2016–19</span>
+          <span style="color:#5E6B7D">Languages</span><span>Hindi, English (basic)</span>
+          <span style="color:#5E6B7D">Exact address</span><span>Visible to admin only</span>
+        </div>
+      </section>
+
+      <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px">
+        <b style="font-size:17px">Activity &amp; notes</b>
+        <div style="display:grid;grid-template-columns:130px 1fr;gap:6px 14px;font-size:14px">
+          <span style="color:#5E6B7D">9 Oct 08:12</span><span>Submitted for verification</span>
+          <span style="color:#5E6B7D">8 Oct 17:40</span><span>Telecaller Anjali: called, collected pricing and work history</span>
+          <span style="color:#5E6B7D">6 Oct 11:02</span><span>Registered via website, stopped at step 3</span>
+        </div>
+        <textarea aria-label="Add note" rows="2" placeholder="Add an internal note" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"></textarea>
+      </section>
+    </div>
+
+    <aside style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:14px">
+      <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px">
+        <b style="font-size:17px">Matching eligibility</b>
+        <div style="display:flex;justify-content:space-between;font-size:14px"><span>Verified</span><b style="color:#8A5A00">Pending</b></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px"><span>Trial / plan</span><b style="color:#5E6B7D">Starts on approval</b></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px"><span>Availability</span><b>BUSY</b></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px"><span>Category</span><b style="color:#0B6E4F">✓</b></div>
+        <p style="font-size:13px;color:#A3261F;font-weight:600">Not eligible for matching</p>
+      </section>
+      <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px">
+        <b style="font-size:17px">Decision</b>
+        <button style="padding:12px;border-radius:10px;border:0;background:#0B6E4F;color:#FFFFFF;font:700 15px Hind,sans-serif;cursor:pointer">Approve &amp; start 5-day trial</button>
+        <label for="rr" style="font-size:13px;font-weight:600;margin-top:4px">Reject reason (shown to worker)</label>
+        <select id="rr" style="padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"><option>Document unclear</option><option>Details don't match</option><option>Category not allowed</option></select>
+        <button style="padding:11px;border-radius:10px;border:1px solid #E7B3AE;background:#FFFFFF;font:700 14px Hind,sans-serif;color:#A3261F;cursor:pointer">Reject</button>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><button style="flex:1;padding:9px;border-radius:9px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 13px Hind,sans-serif;color:#13213C;cursor:pointer">Suspend</button><button style="flex:1;padding:9px;border-radius:9px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 13px Hind,sans-serif;color:#13213C;cursor:pointer">Block</button><button style="flex:1;padding:9px;border-radius:9px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 13px Hind,sans-serif;color:#13213C;cursor:pointer">Reactivate</button></div>
+      </section>
+      <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px">
+        <b style="font-size:17px">Trial / subscription</b>
+        <div style="display:flex;gap:8px"><input aria-label="Extend days" value="5" style="width:64px;padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"><select aria-label="Extend what" style="flex:1;padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"><option>days to trial</option><option>days to paid plan</option></select></div>
+        <input aria-label="Reason" placeholder="Reason (required, saved to audit log)" style="padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:inherit">
+        <button style="padding:10px;border-radius:9px;border:0;background:#13213C;color:#FFFFFF;font:600 14px Hind,sans-serif;cursor:pointer">Extend</button>
+        <p style="font-size:12px;color:#5E6B7D">One trial per mobile number. A second trial needs manual grant.</p>
+      </section>
+    </aside>
+  </div>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

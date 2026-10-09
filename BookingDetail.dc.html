@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia · Booking detail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1500px;background:#F4F6F9">
+<header style="background:#FFFFFF;border-bottom:1px solid #E3E6EB">
+  <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px">
+    <a href="ClientDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#13213C"><span style="width:34px;height:34px;border-radius:10px;background:#0B6E4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font:800 20px 'Baloo 2',sans-serif">K</span><span style="font:800 24px 'Baloo 2',sans-serif">karvia</span></a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;flex:1 1 480px;font-weight:500;font-size:15px">
+      <a href="ClientDashboard.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Home</a>
+      <a href="FindWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Find worker</a>
+      <a href="RequestStatus.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My requests</a>
+      <a href="MyBookings.dc.html" style="padding:9px 12px;border-radius:9px;background:#E3F2EC;color:#0B6E4F;font-weight:700;text-decoration:none">My bookings</a>
+      <a href="MyWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My workers</a>
+    </nav>
+    <a href="Payments.dc.html" style="padding:7px 12px;border-radius:999px;background:#FFF3DC;color:#8A5A00;font-size:14px;font-weight:600;text-decoration:none">₹9 access · 22 days left</a>
+  </div>
+</header>
+
+<main style="max-width:1240px;margin:0 auto;padding:24px 24px 56px;display:flex;flex-direction:column;gap:18px">
+  <a href="MyBookings.dc.html" style="font-weight:600">← My bookings</a>
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:flex-end">
+    <div><p style="color:#5E6B7D">Booking #KRV-10482</p><h1 style="font-size:38px;font-weight:800">Tap / leak repair</h1></div>
+    <span style="font-size:14px;font-weight:700;padding:8px 14px;border-radius:999px;background:#E3F2EC;color:#0B6E4F">IN PROGRESS · started 10:08 AM</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+    <div style="flex:999 1 600px;min-width:0;display:flex;flex-direction:column;gap:16px">
+      <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:22px;display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+        <span style="width:60px;height:60px;border-radius:50%;background:#DCE7F5;display:flex;align-items:center;justify-content:center;font:700 20px 'Baloo 2',sans-serif;flex:none">RY</span>
+        <div style="flex:1 1 220px"><a href="WorkerProfile.dc.html" style="font:700 20px 'Baloo 2',sans-serif;color:#13213C;text-decoration:none">Rakesh Yadav</a><p style="color:#5E6B7D;font-size:14px">Plumber · ★ 4.8 · Verified</p></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button style="display:flex;gap:8px;align-items:center;padding:12px 16px;border-radius:12px;border:0;background:#0B6E4F;color:#FFFFFF;font:600 15px Hind,sans-serif;cursor:pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>Call (masked)</button>
+          <button style="padding:12px 16px;border-radius:12px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 15px Hind,sans-serif;color:#13213C;cursor:pointer">Message</button>
+        </div>
+      </section>
+
+      <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h2 style="font-size:22px">Agreed price</h2><span style="font-size:13px;font-weight:600;color:#0B6E4F">🔒 Locked at confirmation</span></div>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:10px;font-size:16px">
+          <span>Visit charge</span><span>₹300</span>
+          <span>First hour</span><span>₹500</span>
+          <span>Additional time (est. 1 hr × ₹250)</span><span>₹250</span>
+          <span style="color:#5E6B7D">Material: new tap (worker added, you approved)</span><span style="color:#5E6B7D">₹420</span>
+          <b style="border-top:1px solid #E3E6EB;padding-top:10px">Estimated total</b><b style="border-top:1px solid #E3E6EB;padding-top:10px;font:800 24px 'Baloo 2',sans-serif">₹1,470</b>
+        </div>
+        <p style="font-size:14px;color:#5E6B7D">Pay Rakesh directly when the job is done. Keep a screenshot or receipt as proof.</p>
+      </section>
+
+      <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px">
+        <h2 style="font-size:22px">Status history</h2>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div style="display:flex;gap:14px"><span style="width:12px;height:12px;border-radius:50%;background:#0B6E4F;margin-top:6px;flex:none"></span><div style="padding-bottom:14px"><b>In progress</b><p style="font-size:14px;color:#5E6B7D">Sat 11 Oct, 10:08 AM · Started by worker</p></div></div>
+          <div style="display:flex;gap:14px"><span style="width:12px;height:12px;border-radius:50%;background:#0B6E4F;margin-top:6px;flex:none"></span><div style="padding-bottom:14px"><b>Booking confirmed</b><p style="font-size:14px;color:#5E6B7D">Thu 9 Oct, 10:03 AM · Confirmed by you</p></div></div>
+          <div style="display:flex;gap:14px"><span style="width:12px;height:12px;border-radius:50%;background:#0B6E4F;margin-top:6px;flex:none"></span><div style="padding-bottom:14px"><b>Accepted</b><p style="font-size:14px;color:#5E6B7D">Thu 9 Oct, 10:02 AM · First of 6 notified</p></div></div>
+          <div style="display:flex;gap:14px"><span style="width:12px;height:12px;border-radius:50%;background:#CBD2DB;margin-top:6px;flex:none"></span><div><b>Requested</b><p style="font-size:14px;color:#5E6B7D">Thu 9 Oct, 10:02 AM</p></div></div>
+        </div>
+      </section>
+
+      <section style="background:#FFFFFF;border:1px dashed #CBD2DB;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px">
+        <span style="align-self:flex-start;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#F4F6F9;color:#3D4A5C">SHOWN AFTER COMPLETION</span>
+        <h2 style="font-size:22px">How was Rakesh?</h2>
+        <div style="font-size:34px;color:#B7791F;letter-spacing:6px">★★★★★</div>
+        <label for="rv" style="font-weight:600;font-size:14px">Write a review (optional)</label>
+        <textarea id="rv" rows="3" placeholder="What went well? What could be better?" style="padding:12px;border-radius:10px;border:1px solid #CBD2DB;font:inherit"></textarea>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><button style="padding:12px 18px;border-radius:12px;border:0;background:#0B6E4F;color:#FFFFFF;font:600 15px Hind,sans-serif;cursor:pointer">Submit review</button><button style="padding:12px 18px;border-radius:12px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 15px Hind,sans-serif;color:#13213C;cursor:pointer">♡ Save to My workers</button></div>
+      </section>
+    </div>
+
+    <aside style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:14px">
+      <div style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px">
+        <h2 style="font-size:20px">Details</h2>
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:15px">
+          <span style="color:#5E6B7D">When</span><span>Sat 11 Oct, 10:00 AM</span>
+          <span style="color:#5E6B7D">Type</span><span>Scheduled</span>
+          <span style="color:#5E6B7D">Address</span><span>B-204, Sector 62, Noida</span>
+          <span style="color:#5E6B7D">Note</span><span>Kitchen tap leaking from base</span>
+        </div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px">
+        <h2 style="font-size:20px">Need to change something?</h2>
+        <button style="padding:12px;border-radius:12px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 15px Hind,sans-serif;color:#13213C;cursor:pointer">Reschedule</button>
+        <button style="padding:12px;border-radius:12px;border:1px solid #E7B3AE;background:#FFFFFF;font:600 15px Hind,sans-serif;color:#A3261F;cursor:pointer">Cancel booking</button>
+        <p style="font-size:13px;color:#5E6B7D">Late cancellations are recorded. Repeated cancellations may limit your account.</p>
+      </div>
+      <a href="ReportIssue.dc.html" style="background:#FBE4E2;border-radius:14px;padding:16px 18px;color:#A3261F;text-decoration:none;font-weight:600">Report a problem with this booking →</a>
+    </aside>
+  </div>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia Admin · Roles and audit log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1300px;background:#F4F6F9;display:flex;flex-wrap:wrap">
+<nav style="flex:1 1 230px;max-width:250px;background:#0E1830;padding:18px 12px;display:flex;flex-direction:column;gap:2px;font-size:14px">
+  <a href="AdminDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#FFFFFF;padding:4px 8px 16px"><span style="width:30px;height:30px;border-radius:8px;background:#0B6E4F;display:flex;align-items:center;justify-content:center;font:800 18px 'Baloo 2',sans-serif">K</span><span style="font:800 20px 'Baloo 2',sans-serif">karvia</span><span style="font-size:11px;font-weight:700;padding:2px 6px;border-radius:5px;background:#22314F;color:#8FD3BA">ADMIN</span></a>
+  <a href="AdminDashboard.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Dashboard</a>
+  <a href="AdminVerification.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Verification</a>
+  <a href="AdminWorkerDetail.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Workers</a>
+  <a href="AdminClients.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Clients</a>
+  <a href="AdminBookings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Requests &amp; bookings</a>
+  <a href="AdminPayments.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Payments &amp; plans</a>
+  <a href="AdminComplaints.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Complaints</a>
+  <a href="AdminLeads.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Leads</a>
+  <a href="TelecallerConsole.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Telecaller view</a>
+  <span style="padding:14px 12px 4px;color:#7D8AA3;font-size:11px;font-weight:700;letter-spacing:.08em">CONFIGURATION</span>
+  <a href="AdminCategories.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Categories</a>
+  <a href="AdminMatching.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Matching rules</a>
+  <a href="AdminSettings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Business settings</a>
+  <a href="AdminRoles.dc.html" style="padding:9px 12px;border-radius:8px;background:#22314F;color:#FFFFFF;font-weight:700;text-decoration:none">Roles &amp; audit log</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;padding:24px 28px 48px;display:flex;flex-direction:column;gap:16px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap"><h1 style="font-size:34px;font-weight:800">Roles &amp; permissions</h1><button style="padding:10px 14px;border-radius:9px;border:0;background:#0B6E4F;color:#FFFFFF;font:600 14px Hind,sans-serif;cursor:pointer">+ Invite team member</button></div>
+  <div style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;min-width:980px;font-size:13px;text-align:center">
+      <thead><tr style="color:#5E6B7D;font-size:11px;text-transform:uppercase;letter-spacing:.04em"><th style="padding:12px 14px;border-bottom:1px solid #E3E6EB;text-align:left">Role</th><th style="padding:12px 8px;border-bottom:1px solid #E3E6EB">Workers</th><th style="padding:12px 8px;border-bottom:1px solid #E3E6EB">Verify</th><th style="padding:12px 8px;border-bottom:1px solid #E3E6EB">Clients</th><th style="padding:12px 8px;border-bottom:1px solid #E3E6EB">Bookings</th><th style="padding:12px 8px;border-bottom:1px solid #E3E6EB">Payments</th><th style="padding:12px 8px;border-bottom:1px solid #E3E6EB">Refunds</th><th style="padding:12px 8px;border-bottom:1px solid #E3E6EB">Complaints</th><th style="padding:12px 8px;border-bottom:1px solid #E3E6EB">Leads</th><th style="padding:12px 8px;border-bottom:1px solid #E3E6EB">Categories</th><th style="padding:12px 8px;border-bottom:1px solid #E3E6EB">Settings</th><th style="padding:12px 8px;border-bottom:1px solid #E3E6EB">Members</th></tr></thead>
+      <tbody>
+        <sc-for list="{{roles}}" as="r" hint-placeholder-count="9">
+          <tr>
+            <td style="padding:11px 14px;border-bottom:1px solid #E3E6EB;text-align:left"><b>{{r.name}}</b></td>
+            <sc-for list="{{r.p}}" as="c" hint-placeholder-count="10"><td style="padding:11px 8px;border-bottom:1px solid #E3E6EB"><span style="{{c.s}}">{{c.t}}</span></td></sc-for>
+            <td style="padding:11px 8px;border-bottom:1px solid #E3E6EB">{{r.m}}</td>
+          </tr>
+        </sc-for>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px;color:#5E6B7D">E = edit · V = view · — = hidden. Admin can toggle every cell. Sensitive payment and admin controls are hidden by default for new roles.</p>
+
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;overflow-x:auto">
+    <div style="padding:16px 18px 6px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><b style="font-size:18px">Audit log</b><div style="display:flex;gap:8px;flex-wrap:wrap"><input aria-label="Search audit" placeholder="Search actor, entity, action" style="padding:8px 10px;border-radius:8px;border:1px solid #CBD2DB;font:inherit"><button style="padding:8px 12px;border-radius:8px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 13px Hind,sans-serif;color:#13213C;cursor:pointer">Export</button></div></div>
+    <table style="width:100%;border-collapse:collapse;min-width:900px;font-size:14px">
+      <thead><tr style="text-align:left;color:#5E6B7D;font-size:12px;text-transform:uppercase"><th style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Time</th><th style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Actor</th><th style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Action</th><th style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Entity</th><th style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Before → After</th><th style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Reason</th></tr></thead>
+      <tbody>
+        <tr><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB;color:#5E6B7D">10:21:04</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Meera (Admin)</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB"><b>worker.approve</b></td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">W-20931 Rakesh Y.</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">UNDER_REVIEW → VERIFIED</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Docs OK</td></tr>
+        <tr><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB;color:#5E6B7D">09:31:40</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Meera (Admin)</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB"><b>trial.extend</b></td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">W-20104 Sunita D.</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">ends 9 Oct → 14 Oct</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">App outage 6 Oct</td></tr>
+        <tr><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB;color:#5E6B7D">09:02:11</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Arun (Ops manager)</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB"><b>settings.update</b></td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">matching.timeout</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">45 s → 60 s</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Low acceptance</td></tr>
+        <tr><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB;color:#5E6B7D">08:47:55</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Meera (Admin)</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB"><b>document.view</b></td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">W-20931 Aadhaar</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">—</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Verification</td></tr>
+        <tr><td style="padding:10px 18px;color:#5E6B7D">Yesterday</td><td style="padding:10px 18px">Anjali (Telecaller)</td><td style="padding:10px 18px"><b>lead.update</b></td><td style="padding:10px 18px">L-8812 Deepak V.</td><td style="padding:10px 18px">CONTACTED → INTERESTED</td><td style="padding:10px 18px">Call outcome</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const E = { t:'E', s:'display:inline-block;min-width:24px;padding:2px 6px;border-radius:5px;background:#E3F2EC;color:#0B6E4F;font-weight:700' };
+    const V = { t:'V', s:'display:inline-block;min-width:24px;padding:2px 6px;border-radius:5px;background:#E8EEFC;color:#1D4ED8;font-weight:700' };
+    const N = { t:'—', s:'display:inline-block;min-width:24px;color:#9AA5B4' };
+    const row = (name, code, m) => ({ name, m, p: code.split('').map(ch => ch === 'E' ? E : ch === 'V' ? V : N) });
+    return { roles: [
+      row('Super admin',        'EEEEEEEEEE', '1'),
+      row('Verification manager','EEVV-N--VN'.replace(/N/g,'-'), '2'),
+      row('Worker manager',     'EVVV--V-V-', '2'),
+      row('Client manager',     '--EV--V---', '1'),
+      row('Booking manager',    'V-VE--V---', '2'),
+      row('Payment manager',    'V-VVEE----', '1'),
+      row('Complaint manager',  'VVVV--E---', '2'),
+      row('Lead manager',       'V------E--', '1'),
+      row('Telecaller',         '-------E--', '6')
+    ] };
+  }
+}
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

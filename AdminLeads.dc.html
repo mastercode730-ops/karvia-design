@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia Admin · Leads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1200px;background:#F4F6F9;display:flex;flex-wrap:wrap">
+<nav style="flex:1 1 230px;max-width:250px;background:#0E1830;padding:18px 12px;display:flex;flex-direction:column;gap:2px;font-size:14px">
+  <a href="AdminDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#FFFFFF;padding:4px 8px 16px"><span style="width:30px;height:30px;border-radius:8px;background:#0B6E4F;display:flex;align-items:center;justify-content:center;font:800 18px 'Baloo 2',sans-serif">K</span><span style="font:800 20px 'Baloo 2',sans-serif">karvia</span><span style="font-size:11px;font-weight:700;padding:2px 6px;border-radius:5px;background:#22314F;color:#8FD3BA">ADMIN</span></a>
+  <a href="AdminDashboard.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Dashboard</a>
+  <a href="AdminVerification.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Verification</a>
+  <a href="AdminWorkerDetail.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Workers</a>
+  <a href="AdminClients.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Clients</a>
+  <a href="AdminBookings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Requests &amp; bookings</a>
+  <a href="AdminPayments.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Payments &amp; plans</a>
+  <a href="AdminComplaints.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Complaints</a>
+  <a href="AdminLeads.dc.html" style="padding:9px 12px;border-radius:8px;background:#22314F;color:#FFFFFF;font-weight:700;text-decoration:none">Leads</a>
+  <a href="TelecallerConsole.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Telecaller view</a>
+  <span style="padding:14px 12px 4px;color:#7D8AA3;font-size:11px;font-weight:700;letter-spacing:.08em">CONFIGURATION</span>
+  <a href="AdminCategories.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Categories</a>
+  <a href="AdminMatching.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Matching rules</a>
+  <a href="AdminSettings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Business settings</a>
+  <a href="AdminRoles.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Roles &amp; audit log</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;padding:24px 28px 48px;display:flex;flex-direction:column;gap:16px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap"><div><h1 style="font-size:34px;font-weight:800">Leads pipeline</h1><p style="color:#5E6B7D">Lead → Assign → Call / message → Follow-up → Status → Convert</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><select aria-label="Source" style="padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:inherit;background:#FFFFFF"><option>All sources</option><option>Incomplete registration</option><option>Trial ending</option><option>Expired worker</option><option>Unpaid worker</option><option>Voice registration</option><option>Referral</option></select><button style="padding:9px 14px;border-radius:9px;border:0;background:#13213C;color:#FFFFFF;font:600 14px Hind,sans-serif;cursor:pointer">Assign selected</button></div></div>
+  <div style="overflow-x:auto;padding-bottom:8px">
+    <div style="display:flex;gap:12px;min-width:1240px;align-items:flex-start">
+      <sc-for list="{{cols}}" as="c" hint-placeholder-count="6">
+        <div style="flex:1 1 200px;background:#EBEEF2;border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:2px 4px"><b style="font-size:14px">{{c.name}}</b><span style="font-size:12px;font-weight:700;color:#5E6B7D">{{c.count}}</span></div>
+          <sc-for list="{{c.cards}}" as="k" hint-placeholder-count="2">
+            <div style="background:#FFFFFF;border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:4px;font-size:13px;border:1px solid #E3E6EB">
+              <b style="font-size:14px">{{k.n}}</b>
+              <span style="color:#5E6B7D">{{k.cat}} · {{k.loc}}</span>
+              <span>Pending: {{k.pending}}</span>
+              <span style="color:#5E6B7D">{{k.src}} · {{k.last}}</span>
+              <span style="align-self:flex-start;margin-top:2px;padding:2px 8px;border-radius:999px;background:#E3F2EC;color:#0B6E4F;font-weight:700;font-size:11px">{{k.who}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <p style="font-size:13px;color:#5E6B7D">Leads are created automatically when a worker stops registration midway, shows category interest, has a trial ending, or an expired/unpaid plan.</p>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const k = (n, cat, loc, pending, src, last, who) => ({ n, cat, loc, pending, src, last, who });
+    return { cols: [
+      { name:'New', count:'42', cards:[ k('Deepak V.','Electrician','Gr. Noida W','documents, pricing','Incomplete reg.','2 h','UNASSIGNED'), k('Salma B.','Maid','Noida 18','photo, area','Voice reg.','5 h','UNASSIGNED') ] },
+      { name:'Contacted', count:'18', cards:[ k('Ajay T.','Driver','Indirapuram','licence','Website','Today','ANJALI') ] },
+      { name:'Interested', count:'11', cards:[ k('Mukesh R.','Painter','Noida 12','experience','Category interest','Yesterday','ANJALI'), k('Rekha S.','Maid','Noida 50','documents','Referral','Yesterday','RAHUL') ] },
+      { name:'Registration pending', count:'9', cards:[ k('Gopal K.','Labour','Noida 63','work history','Incomplete reg.','2 d','RAHUL') ] },
+      { name:'Payment pending', count:'7', cards:[ k('Sanjay P.','Plumber','Noida 22','₹199 plan','Trial ended','1 d','ANJALI') ] },
+      { name:'Follow-up', count:'6', cards:[ k('Vinod M.','Electrician','Noida 15','call back 6 PM','Expired worker','Today','RAHUL') ] },
+      { name:'Converted', count:'64', cards:[ k('Rakesh Y.','Plumber','Noida 63','—','Incomplete reg.','8 Oct','ANJALI') ] },
+      { name:'Not interested', count:'23', cards:[ k('Ravi D.','Driver','Ghaziabad','—','Website','5 Oct','RAHUL') ] }
+    ] };
+  }
+}
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

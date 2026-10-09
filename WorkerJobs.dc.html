@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia · Requests and jobs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1300px;background:#F4F6F9">
+<header style="background:#13213C">
+  <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px">
+    <a href="WorkerDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#FFFFFF"><span style="width:34px;height:34px;border-radius:10px;background:#F4A51C;color:#13213C;display:flex;align-items:center;justify-content:center;font:800 20px 'Baloo 2',sans-serif">K</span><span style="font:800 24px 'Baloo 2',sans-serif">karvia</span><span style="font-size:13px;font-weight:600;padding:3px 8px;border-radius:6px;background:#22314F;color:#F4A51C">WORKER</span></a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;flex:1 1 520px;font-weight:500;font-size:15px">
+      <a href="WorkerDashboard.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Dashboard</a>
+      <a href="WorkerJobs.dc.html" style="padding:9px 12px;border-radius:9px;background:#22314F;color:#FFFFFF;font-weight:700;text-decoration:none">Requests &amp; jobs</a>
+      <a href="WorkerPricing.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Services &amp; pricing</a>
+      <a href="WorkerProfileEdit.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Profile</a>
+      <a href="WorkerDocuments.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Documents</a>
+      <a href="WorkerSubscription.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">My plan</a>
+      <a href="WorkerReviews.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Reviews</a>
+    </nav>
+    <span style="padding:7px 12px;border-radius:999px;background:#0B6E4F;color:#FFFFFF;font-size:13px;font-weight:700">● AVAILABLE</span>
+  </div>
+</header>
+
+<main style="max-width:1240px;margin:0 auto;padding:28px 24px 56px;display:flex;flex-direction:column;gap:18px">
+  <h1 style="font-size:40px;font-weight:800">Requests &amp; jobs</h1>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid #E3E6EB">
+    <a href="#" style="padding:10px 14px;color:#13213C;text-decoration:none;font-weight:700;border-bottom:3px solid #F4A51C">New (2)</a>
+    <a href="#" style="padding:10px 14px;color:#5E6B7D;text-decoration:none;font-weight:600">Accepted (2)</a>
+    <a href="#" style="padding:10px 14px;color:#5E6B7D;text-decoration:none;font-weight:600">Upcoming (3)</a>
+    <a href="#" style="padding:10px 14px;color:#5E6B7D;text-decoration:none;font-weight:600">Completed (64)</a>
+    <a href="#" style="padding:10px 14px;color:#5E6B7D;text-decoration:none;font-weight:600">Cancelled (1)</a>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start">
+    <section style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:12px">
+      <div style="background:#FFFFFF;border:2px solid #F4A51C;border-radius:16px;padding:18px;display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+        <div style="flex:1 1 300px;min-width:0"><span style="font-size:12px;font-weight:700;color:#8A5A00">INSTANT · 0:38 LEFT</span><h2 style="font-size:20px;margin-top:2px">Tap / leak repair · Sector 62</h2><p style="font-size:14px;color:#5E6B7D">1.2 KM · Today · Your rate ₹300 + ₹500/hr</p></div>
+        <div style="display:flex;gap:8px"><button style="padding:12px 16px;border-radius:12px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 15px Hind,sans-serif;color:#13213C;cursor:pointer">Reject</button><a href="WorkerDashboard.dc.html" style="padding:12px 18px;border-radius:12px;background:#0B6E4F;color:#FFFFFF;text-decoration:none;font-weight:700">Accept</a></div>
+      </div>
+      <div style="background:#FFFFFF;border:2px solid #1D4ED8;border-radius:16px;padding:18px;display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+        <div style="flex:1 1 300px;min-width:0"><span style="font-size:12px;font-weight:700;color:#1D4ED8">QUOTE REQUEST · 3 others quoting</span><h2 style="font-size:20px;margin-top:2px">Full pipeline work · 3BHK · Sector 50</h2><p style="font-size:14px;color:#5E6B7D">3.8 KM · Flexible date · 4 photos · voice note 0:32</p></div>
+        <a href="#quote" style="padding:12px 18px;border-radius:12px;background:#1D4ED8;color:#FFFFFF;text-decoration:none;font-weight:700">Send quote</a>
+      </div>
+      <div style="background:#F4F6F9;border:1px solid #E3E6EB;border-radius:16px;padding:18px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;opacity:.8">
+        <div style="flex:1 1 300px;min-width:0"><span style="font-size:12px;font-weight:700;color:#5E6B7D">CLOSED</span><h2 style="font-size:20px;margin-top:2px;color:#5E6B7D">Geyser fitting · Sector 63</h2><p style="font-size:14px;color:#5E6B7D">Request already assigned to another worker</p></div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:12px;font-weight:700;color:#0B6E4F">ACCEPTED JOB · CONTACT UNLOCKED</span>
+        <h2 style="font-size:20px">Bathroom fitting · Vikas S.</h2>
+        <p style="font-size:14px;color:#5E6B7D">Today 2:00 PM · C-41, Sector 61 · Agreed ₹300 + ₹500/hr</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button style="padding:11px 14px;border-radius:10px;border:0;background:#0B6E4F;color:#FFFFFF;font:600 14px Hind,sans-serif;cursor:pointer">Call (masked)</button>
+          <button style="padding:11px 14px;border-radius:10px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 14px Hind,sans-serif;color:#13213C;cursor:pointer">Navigate</button>
+          <button style="padding:11px 14px;border-radius:10px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 14px Hind,sans-serif;color:#13213C;cursor:pointer">Start job</button>
+          <button style="padding:11px 14px;border-radius:10px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 14px Hind,sans-serif;color:#13213C;cursor:pointer">Add material charge</button>
+          <button style="padding:11px 14px;border-radius:10px;border:1px solid #E7B3AE;background:#FFFFFF;font:600 14px Hind,sans-serif;color:#A3261F;cursor:pointer">Cancel</button>
+        </div>
+      </div>
+    </section>
+
+    <form id="quote" style="flex:1 1 340px;min-width:0;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px">
+      <h2 style="font-size:22px">Send a quote</h2>
+      <p style="font-size:14px;color:#5E6B7D">Full pipeline work · 3BHK · Sector 50</p>
+      <div style="display:flex;flex-direction:column;gap:6px"><label for="sc" style="font-weight:600;font-size:14px">Service charge (₹)</label><input id="sc" value="7,500" style="padding:12px;border-radius:10px;border:1px solid #CBD2DB;font:inherit"></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><label for="mc" style="font-weight:600;font-size:14px">Material / extra (₹)</label><input id="mc" value="4,200" style="padding:12px;border-radius:10px;border:1px solid #CBD2DB;font:inherit"></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><label for="tx" style="font-weight:600;font-size:14px">Tax (if applicable)</label><input id="tx" value="0" style="padding:12px;border-radius:10px;border:1px solid #CBD2DB;font:inherit"></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><label for="nt" style="font-weight:600;font-size:14px">Note to client</label><textarea id="nt" rows="3" style="padding:12px;border-radius:10px;border:1px solid #CBD2DB;font:inherit">CPVC pipes, 2 days, includes wall chiselling and finishing.</textarea></div>
+      <div style="display:flex;justify-content:space-between;background:#F4F6F9;border-radius:10px;padding:12px"><b>Total</b><b style="font:800 22px 'Baloo 2',sans-serif">₹11,700</b></div>
+      <p style="font-size:13px;color:#5E6B7D">Valid for 30 minutes. You can withdraw before the client accepts. Editing creates a new version.</p>
+      <button type="button" style="padding:14px;border-radius:12px;border:0;background:#1D4ED8;color:#FFFFFF;font:700 16px Hind,sans-serif;cursor:pointer">Submit quote</button>
+    </form>
+  </div>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

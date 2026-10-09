@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia Admin · Clients</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1100px;background:#F4F6F9;display:flex;flex-wrap:wrap">
+<nav style="flex:1 1 230px;max-width:250px;background:#0E1830;padding:18px 12px;display:flex;flex-direction:column;gap:2px;font-size:14px">
+  <a href="AdminDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#FFFFFF;padding:4px 8px 16px"><span style="width:30px;height:30px;border-radius:8px;background:#0B6E4F;display:flex;align-items:center;justify-content:center;font:800 18px 'Baloo 2',sans-serif">K</span><span style="font:800 20px 'Baloo 2',sans-serif">karvia</span><span style="font-size:11px;font-weight:700;padding:2px 6px;border-radius:5px;background:#22314F;color:#8FD3BA">ADMIN</span></a>
+  <a href="AdminDashboard.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Dashboard</a>
+  <a href="AdminVerification.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Verification</a>
+  <a href="AdminWorkerDetail.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Workers</a>
+  <a href="AdminClients.dc.html" style="padding:9px 12px;border-radius:8px;background:#22314F;color:#FFFFFF;font-weight:700;text-decoration:none">Clients</a>
+  <a href="AdminBookings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Requests &amp; bookings</a>
+  <a href="AdminPayments.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Payments &amp; plans</a>
+  <a href="AdminComplaints.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Complaints</a>
+  <a href="AdminLeads.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Leads</a>
+  <a href="TelecallerConsole.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Telecaller view</a>
+  <span style="padding:14px 12px 4px;color:#7D8AA3;font-size:11px;font-weight:700;letter-spacing:.08em">CONFIGURATION</span>
+  <a href="AdminCategories.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Categories</a>
+  <a href="AdminMatching.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Matching rules</a>
+  <a href="AdminSettings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Business settings</a>
+  <a href="AdminRoles.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Roles &amp; audit log</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;padding:24px 28px 48px;display:flex;flex-direction:column;gap:16px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap"><h1 style="font-size:34px;font-weight:800">Clients</h1><button style="padding:9px 14px;border-radius:9px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 14px Hind,sans-serif;color:#13213C;cursor:pointer">Export CSV</button></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <input aria-label="Search clients" placeholder="Search name, mobile, request ID" style="flex:1 1 260px;padding:10px 12px;border-radius:9px;border:1px solid #CBD2DB;font:inherit;background:#FFFFFF">
+    <select aria-label="Access" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit;background:#FFFFFF"><option>Access: all</option><option>Active</option><option>Expired</option><option>Never paid</option></select>
+    <select aria-label="Status" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit;background:#FFFFFF"><option>Status: all</option><option>Suspended</option><option>Blocked</option></select>
+  </div>
+  <div style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;min-width:900px;font-size:14px">
+      <thead><tr style="text-align:left;color:#5E6B7D;font-size:12px;text-transform:uppercase;letter-spacing:.04em"><th style="padding:12px 16px;border-bottom:1px solid #E3E6EB">Client</th><th style="padding:12px 16px;border-bottom:1px solid #E3E6EB">Location</th><th style="padding:12px 16px;border-bottom:1px solid #E3E6EB">₹9 access</th><th style="padding:12px 16px;border-bottom:1px solid #E3E6EB">Requests</th><th style="padding:12px 16px;border-bottom:1px solid #E3E6EB">Cancellations</th><th style="padding:12px 16px;border-bottom:1px solid #E3E6EB">Complaints</th><th style="padding:12px 16px;border-bottom:1px solid #E3E6EB">Status</th><th style="padding:12px 16px;border-bottom:1px solid #E3E6EB"></th></tr></thead>
+      <tbody>
+        <sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+          <tr>
+            <td style="padding:12px 16px;border-bottom:1px solid #E3E6EB"><b>{{r.name}}</b><span style="display:block;color:#5E6B7D;font-size:13px">{{r.mob}} · joined {{r.joined}}</span></td>
+            <td style="padding:12px 16px;border-bottom:1px solid #E3E6EB">{{r.loc}}</td>
+            <td style="padding:12px 16px;border-bottom:1px solid #E3E6EB"><span style="{{r.accPill}}">{{r.acc}}</span></td>
+            <td style="padding:12px 16px;border-bottom:1px solid #E3E6EB">{{r.req}}</td>
+            <td style="padding:12px 16px;border-bottom:1px solid #E3E6EB">{{r.canc}}</td>
+            <td style="padding:12px 16px;border-bottom:1px solid #E3E6EB">{{r.comp}}</td>
+            <td style="padding:12px 16px;border-bottom:1px solid #E3E6EB"><span style="{{r.stPill}}">{{r.st}}</span></td>
+            <td style="padding:12px 16px;border-bottom:1px solid #E3E6EB;text-align:right;white-space:nowrap"><a href="#" style="font-weight:600">View</a> · <a href="#" style="font-weight:600;color:#A3261F">Suspend</a></td>
+          </tr>
+        </sc-for>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px;color:#5E6B7D">Clients need no approval to register. Suspend or block writes an audit log entry with the reason.</p>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const pill = (bg, c) => 'font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:' + bg + ';color:' + c;
+    const act = pill('#E3F2EC','#0B6E4F'), exp = pill('#F4F6F9','#5E6B7D'), none = pill('#FFF3DC','#8A5A00'), sus = pill('#FBE4E2','#A3261F');
+    return { rows: [
+      { name:'Priya Sharma', mob:'98xxxxx210', joined:'9 Oct', loc:'Noida 62', acc:'ACTIVE · 22 d', accPill:act, req:'6', canc:'0', comp:'1', st:'ACTIVE', stPill:act },
+      { name:'Vikas Saini', mob:'99xxxxx019', joined:'21 Sep', loc:'Noida 61', acc:'ACTIVE · 3 d', accPill:act, req:'3', canc:'1', comp:'0', st:'ACTIVE', stPill:act },
+      { name:'Neha Gupta', mob:'97xxxxx774', joined:'2 Sep', loc:'Noida 50', acc:'EXPIRED', accPill:exp, req:'9', canc:'0', comp:'0', st:'ACTIVE', stPill:act },
+      { name:'Amit Rawal', mob:'88xxxxx301', joined:'14 Aug', loc:'Indirapuram', acc:'ACTIVE · 11 d', accPill:act, req:'14', canc:'5', comp:'2', st:'WARNED', stPill:none },
+      { name:'Karan Mehta', mob:'70xxxxx982', joined:'8 Oct', loc:'Gr. Noida W', acc:'NEVER PAID', accPill:none, req:'0', canc:'0', comp:'0', st:'ACTIVE', stPill:act },
+      { name:'[Redacted]', mob:'93xxxxx455', joined:'3 Jul', loc:'Ghaziabad', acc:'EXPIRED', accPill:exp, req:'21', canc:'9', comp:'4', st:'SUSPENDED', stPill:sus }
+    ] };
+  }
+}
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

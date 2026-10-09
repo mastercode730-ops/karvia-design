@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia Admin · Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1500px;background:#F4F6F9;display:flex;flex-wrap:wrap">
+<nav style="flex:1 1 230px;max-width:250px;background:#0E1830;padding:18px 12px;display:flex;flex-direction:column;gap:2px;font-size:14px">
+  <a href="AdminDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#FFFFFF;padding:4px 8px 16px"><span style="width:30px;height:30px;border-radius:8px;background:#0B6E4F;display:flex;align-items:center;justify-content:center;font:800 18px 'Baloo 2',sans-serif">K</span><span style="font:800 20px 'Baloo 2',sans-serif">karvia</span><span style="font-size:11px;font-weight:700;padding:2px 6px;border-radius:5px;background:#22314F;color:#8FD3BA">ADMIN</span></a>
+  <a href="AdminDashboard.dc.html" style="padding:9px 12px;border-radius:8px;background:#22314F;color:#FFFFFF;font-weight:700;text-decoration:none">Dashboard</a>
+  <a href="AdminVerification.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none;display:flex;justify-content:space-between">Verification <span style="background:#F4A51C;color:#13213C;border-radius:999px;padding:0 7px;font-weight:700;font-size:12px">18</span></a>
+  <a href="AdminWorkerDetail.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Workers</a>
+  <a href="AdminClients.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Clients</a>
+  <a href="AdminBookings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Requests &amp; bookings</a>
+  <a href="AdminPayments.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Payments &amp; plans</a>
+  <a href="AdminComplaints.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none;display:flex;justify-content:space-between">Complaints <span style="background:#C2362F;color:#FFFFFF;border-radius:999px;padding:0 7px;font-weight:700;font-size:12px">5</span></a>
+  <a href="AdminLeads.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Leads</a>
+  <a href="TelecallerConsole.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Telecaller view</a>
+  <span style="padding:14px 12px 4px;color:#7D8AA3;font-size:11px;font-weight:700;letter-spacing:.08em">CONFIGURATION</span>
+  <a href="AdminCategories.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Categories</a>
+  <a href="AdminMatching.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Matching rules</a>
+  <a href="AdminSettings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Business settings</a>
+  <a href="AdminRoles.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Roles &amp; audit log</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;padding:24px 28px 48px;display:flex;flex-direction:column;gap:18px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap">
+    <div><p style="color:#5E6B7D">Thursday, 9 Oct 2026</p><h1 style="font-size:34px;font-weight:800">Dashboard</h1></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><select aria-label="City" style="padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:inherit;background:#FFFFFF"><option>All cities</option></select><select aria-label="Range" style="padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:inherit;background:#FFFFFF"><option>Last 7 days</option></select></div>
+  </div>
+  <p style="font-size:13px;color:#8A5A00;background:#FFF3DC;padding:8px 12px;border-radius:8px;align-self:flex-start">All numbers on this design are sample values. Live dashboards read from the database only.</p>
+
+  <section style="display:flex;flex-direction:column;gap:8px">
+    <span style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#5E6B7D">NEEDS ACTION</span>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px">
+      <a href="AdminVerification.dc.html" style="background:#FFFFFF;border:1px solid #F0DDB4;border-radius:12px;padding:14px;text-decoration:none;color:#13213C"><span style="font-size:13px;color:#5E6B7D">Pending verification</span><b style="display:block;font:800 28px 'Baloo 2',sans-serif;color:#8A5A00">18</b></a>
+      <a href="AdminBookings.dc.html" style="background:#FFFFFF;border:1px solid #F0DDB4;border-radius:12px;padding:14px;text-decoration:none;color:#13213C"><span style="font-size:13px;color:#5E6B7D">No worker found</span><b style="display:block;font:800 28px 'Baloo 2',sans-serif;color:#8A5A00">7</b></a>
+      <a href="AdminComplaints.dc.html" style="background:#FFFFFF;border:1px solid #F0C8C4;border-radius:12px;padding:14px;text-decoration:none;color:#13213C"><span style="font-size:13px;color:#5E6B7D">Open complaints</span><b style="display:block;font:800 28px 'Baloo 2',sans-serif;color:#A3261F">5</b></a>
+      <a href="AdminLeads.dc.html" style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:12px;padding:14px;text-decoration:none;color:#13213C"><span style="font-size:13px;color:#5E6B7D">Unassigned leads</span><b style="display:block;font:800 28px 'Baloo 2',sans-serif">42</b></a>
+      <a href="AdminPayments.dc.html" style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:12px;padding:14px;text-decoration:none;color:#13213C"><span style="font-size:13px;color:#5E6B7D">Payment issues</span><b style="display:block;font:800 28px 'Baloo 2',sans-serif">2</b></a>
+    </div>
+  </section>
+
+  <div style="display:flex;flex-wrap:wrap;gap:14px">
+    <section style="flex:1 1 300px;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px">
+      <b>Workers</b>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:6px;font-size:14px">
+        <span>New this week</span><b>126</b><span>Verified</span><b>1,840</b><span>On trial</span><b>214</b><span>Paid (₹199)</span><b>1,102</b><span>Expired</span><b>338</b><span>Available right now</span><b style="color:#0B6E4F">612</b>
+      </div>
+    </section>
+    <section style="flex:1 1 300px;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px">
+      <b>Clients</b>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:6px;font-size:14px">
+        <span>New this week</span><b>904</b><span>Active ₹9 access</span><b>3,215</b><span>Access expiring in 3 days</span><b>288</b><span>Suspended</span><b>4</b>
+      </div>
+    </section>
+    <section style="flex:1 1 300px;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px">
+      <b>Revenue this week</b>
+      <b style="font:800 32px 'Baloo 2',sans-serif">₹62,490</b>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:6px;font-size:14px"><span>Client access (₹9 × 2,410)</span><b>₹21,690</b><span>Worker plans (₹199 × 205)</span><b>₹40,795</b></div>
+    </section>
+  </div>
+
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><b>Request funnel · last 7 days</b><span style="font-size:13px;color:#5E6B7D">Sample data</span></div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
+      <div style="display:grid;grid-template-columns:150px 1fr 60px;gap:10px;align-items:center"><span>Requested</span><span style="height:22px;border-radius:5px;background:#13213C;width:100%"></span><b style="text-align:right">2,940</b></div>
+      <div style="display:grid;grid-template-columns:150px 1fr 60px;gap:10px;align-items:center"><span>Sent to workers</span><span style="height:22px;border-radius:5px;background:#13213C;width:96%"></span><b style="text-align:right">2,822</b></div>
+      <div style="display:grid;grid-template-columns:150px 1fr 60px;gap:10px;align-items:center"><span>Accepted</span><span style="height:22px;border-radius:5px;background:#0B6E4F;width:81%"></span><b style="text-align:right">2,381</b></div>
+      <div style="display:grid;grid-template-columns:150px 1fr 60px;gap:10px;align-items:center"><span>Confirmed</span><span style="height:22px;border-radius:5px;background:#0B6E4F;width:74%"></span><b style="text-align:right">2,176</b></div>
+      <div style="display:grid;grid-template-columns:150px 1fr 60px;gap:10px;align-items:center"><span>Completed</span><span style="height:22px;border-radius:5px;background:#0B6E4F;width:66%"></span><b style="text-align:right">1,940</b></div>
+      <div style="display:grid;grid-template-columns:150px 1fr 60px;gap:10px;align-items:center"><span>Expired / no worker</span><span style="height:22px;border-radius:5px;background:#F4A51C;width:6%"></span><b style="text-align:right">172</b></div>
+      <div style="display:grid;grid-template-columns:150px 1fr 60px;gap:10px;align-items:center"><span>Cancelled</span><span style="height:22px;border-radius:5px;background:#C2362F;width:8%"></span><b style="text-align:right">236</b></div>
+    </div>
+  </section>
+
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;overflow-x:auto">
+    <div style="padding:16px 18px 4px;display:flex;justify-content:space-between"><b>Supply gaps by area</b><a href="AdminMatching.dc.html" style="font-weight:600;font-size:14px">Matching rules</a></div>
+    <table style="width:100%;border-collapse:collapse;min-width:640px;font-size:14px">
+      <thead><tr style="text-align:left;color:#5E6B7D;font-size:12px;text-transform:uppercase"><th style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Area</th><th style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Category</th><th style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Requests</th><th style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Available workers</th><th style="padding:10px 18px;border-bottom:1px solid #E3E6EB">No-worker rate</th></tr></thead>
+      <tbody>
+        <tr><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Greater Noida West</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Electrician</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">188</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">9</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB;color:#A3261F;font-weight:700">21%</td></tr>
+        <tr><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Sector 62, Noida</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">Maid</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">240</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB">31</td><td style="padding:10px 18px;border-bottom:1px solid #E3E6EB;color:#8A5A00;font-weight:700">9%</td></tr>
+        <tr><td style="padding:10px 18px">Indirapuram</td><td style="padding:10px 18px">Driver</td><td style="padding:10px 18px">96</td><td style="padding:10px 18px">22</td><td style="padding:10px 18px;color:#0B6E4F;font-weight:700">2%</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

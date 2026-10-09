@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia Admin · Matching rules</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1300px;background:#F4F6F9;display:flex;flex-wrap:wrap">
+<nav style="flex:1 1 230px;max-width:250px;background:#0E1830;padding:18px 12px;display:flex;flex-direction:column;gap:2px;font-size:14px">
+  <a href="AdminDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#FFFFFF;padding:4px 8px 16px"><span style="width:30px;height:30px;border-radius:8px;background:#0B6E4F;display:flex;align-items:center;justify-content:center;font:800 18px 'Baloo 2',sans-serif">K</span><span style="font:800 20px 'Baloo 2',sans-serif">karvia</span><span style="font-size:11px;font-weight:700;padding:2px 6px;border-radius:5px;background:#22314F;color:#8FD3BA">ADMIN</span></a>
+  <a href="AdminDashboard.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Dashboard</a>
+  <a href="AdminVerification.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Verification</a>
+  <a href="AdminWorkerDetail.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Workers</a>
+  <a href="AdminClients.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Clients</a>
+  <a href="AdminBookings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Requests &amp; bookings</a>
+  <a href="AdminPayments.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Payments &amp; plans</a>
+  <a href="AdminComplaints.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Complaints</a>
+  <a href="AdminLeads.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Leads</a>
+  <a href="TelecallerConsole.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Telecaller view</a>
+  <span style="padding:14px 12px 4px;color:#7D8AA3;font-size:11px;font-weight:700;letter-spacing:.08em">CONFIGURATION</span>
+  <a href="AdminCategories.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Categories</a>
+  <a href="AdminMatching.dc.html" style="padding:9px 12px;border-radius:8px;background:#22314F;color:#FFFFFF;font-weight:700;text-decoration:none">Matching rules</a>
+  <a href="AdminSettings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Business settings</a>
+  <a href="AdminRoles.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Roles &amp; audit log</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;padding:24px 28px 48px;display:flex;flex-direction:column;gap:16px">
+  <div><h1 style="font-size:34px;font-weight:800">Matching rules</h1><p style="color:#5E6B7D">Changes apply to new requests immediately and are written to the audit log.</p></div>
+
+  <section style="background:#13213C;color:#FFFFFF;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px">
+    <b style="color:#F4A51C;font-size:13px;letter-spacing:.06em">GOLDEN RULE · A WORKER IS ELIGIBLE ONLY IF ALL ARE TRUE</b>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:14px;font-weight:600">
+      <span style="padding:7px 12px;border-radius:8px;background:#22314F">Verified</span><span style="color:#7D8AA3">+</span>
+      <span style="padding:7px 12px;border-radius:8px;background:#22314F">Active trial / ₹199 plan</span><span style="color:#7D8AA3">+</span>
+      <span style="padding:7px 12px;border-radius:8px;background:#22314F">AVAILABLE</span><span style="color:#7D8AA3">+</span>
+      <span style="padding:7px 12px;border-radius:8px;background:#22314F">Category &amp; service</span><span style="color:#7D8AA3">+</span>
+      <span style="padding:7px 12px;border-radius:8px;background:#22314F">Within radius of job</span><span style="color:#7D8AA3">+</span>
+      <span style="padding:7px 12px;border-radius:8px;background:#22314F">Free at date/time</span><span style="color:#7D8AA3">+</span>
+      <span style="padding:7px 12px;border-radius:8px;background:#22314F">Advance rules met</span>
+    </div>
+  </section>
+
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+    <section style="flex:1 1 380px;min-width:0;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px">
+      <b style="font-size:17px">Radius</b>
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600">Default search radius</span>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><span style="padding:8px 14px;border-radius:9px;background:#0B6E4F;color:#FFFFFF;font-weight:700">5 KM</span><span style="padding:8px 14px;border-radius:9px;border:1px solid #CBD2DB">10 KM</span><span style="padding:8px 14px;border-radius:9px;border:1px solid #CBD2DB">15 KM</span><span style="padding:8px 14px;border-radius:9px;border:1px solid #CBD2DB">20 KM</span><span style="padding:8px 14px;border-radius:9px;border:1px solid #CBD2DB">25 KM</span><span style="padding:8px 14px;border-radius:9px;border:1px solid #CBD2DB">City</span><span style="padding:8px 14px;border-radius:9px;border:1px solid #CBD2DB">District</span></div></div>
+      <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" checked style="width:18px;height:18px"> Expand automatically when no one accepts</label>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:600"><span style="padding:8px 12px;border-radius:9px;background:#E3F2EC;color:#0B6E4F">5 KM</span>→<span style="padding:8px 12px;border-radius:9px;background:#F4F6F9">10 KM</span>→<span style="padding:8px 12px;border-radius:9px;background:#F4F6F9">15 KM</span>→<span style="padding:8px 12px;border-radius:9px;background:#F4F6F9">20 KM</span><a href="#" style="font-size:14px">Edit steps</a></div>
+      <p style="font-size:13px;color:#5E6B7D">Distance is measured from the job location, never the worker's home address.</p>
+    </section>
+    <section style="flex:1 1 380px;min-width:0;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px">
+      <b style="font-size:17px">Distribution</b>
+      <div style="display:flex;flex-direction:column;gap:4px"><label for="mode" style="font-size:13px;font-weight:600">Mode</label><select id="mode" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"><option>Broadcast to all eligible · first accept wins</option><option>Batches of N, nearest first</option></select></div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+        <div style="display:flex;flex-direction:column;gap:4px"><label for="to" style="font-size:13px;font-weight:600">Accept window</label><input id="to" value="60 seconds" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"></div>
+        <div style="display:flex;flex-direction:column;gap:4px"><label for="cap" style="font-size:13px;font-weight:600">Max workers notified</label><input id="cap" value="15" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"></div>
+        <div style="display:flex;flex-direction:column;gap:4px"><label for="cd" style="font-size:13px;font-weight:600">Worker cooldown</label><input id="cd" value="Max 20 requests / hour" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"></div>
+        <div style="display:flex;flex-direction:column;gap:4px"><label for="rr" style="font-size:13px;font-weight:600">Re-route attempts</label><input id="rr" value="3" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"></div>
+      </div>
+      <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" checked style="width:18px;height:18px"> Stop all notifications the moment one worker accepts</label>
+      <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" checked style="width:18px;height:18px"> Rank by nearest first</label>
+    </section>
+  </div>
+
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px">
+    <b style="font-size:17px">Client rate limits (abuse protection)</b>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">
+      <div style="display:flex;flex-direction:column;gap:4px"><label for="r1" style="font-size:13px;font-weight:600">Open requests at once</label><input id="r1" value="3" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><label for="r2" style="font-size:13px;font-weight:600">Requests per day</label><input id="r2" value="10" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><label for="r3" style="font-size:13px;font-weight:600">Cancellations before warning</label><input id="r3" value="3 in 7 days" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"></div>
+    </div>
+  </section>
+
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px">
+    <b style="font-size:17px">Test the rules</b>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><select aria-label="Service" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"><option>Plumber · Tap repair</option></select><input aria-label="Location" value="Sector 62, Noida" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"><input aria-label="When" value="Now" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit;width:100px"><button style="padding:10px 14px;border-radius:9px;border:0;background:#13213C;color:#FFFFFF;font:600 14px Hind,sans-serif;cursor:pointer">Run</button></div>
+    <p style="font-size:14px">Result: <b>6 eligible</b> within 5 KM · 4 filtered out (2 BUSY, 1 plan expired, 1 not verified)</p>
+  </section>
+  <div style="display:flex;justify-content:flex-end"><button style="padding:12px 20px;border-radius:10px;border:0;background:#0B6E4F;color:#FFFFFF;font:700 15px Hind,sans-serif;cursor:pointer">Save rules</button></div>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

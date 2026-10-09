@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia · Notifications</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1100px;background:#F4F6F9">
+<header style="background:#FFFFFF;border-bottom:1px solid #E3E6EB">
+  <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px">
+    <a href="ClientDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#13213C"><span style="width:34px;height:34px;border-radius:10px;background:#0B6E4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font:800 20px 'Baloo 2',sans-serif">K</span><span style="font:800 24px 'Baloo 2',sans-serif">karvia</span></a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;flex:1 1 480px;font-weight:500;font-size:15px">
+      <a href="ClientDashboard.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Home</a>
+      <a href="FindWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Find worker</a>
+      <a href="RequestStatus.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My requests</a>
+      <a href="MyBookings.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My bookings</a>
+      <a href="MyWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My workers</a>
+    </nav>
+    <a href="Payments.dc.html" style="padding:7px 12px;border-radius:999px;background:#FFF3DC;color:#8A5A00;font-size:14px;font-weight:600;text-decoration:none">₹9 access · 22 days left</a>
+  </div>
+</header>
+
+<main style="max-width:900px;margin:0 auto;padding:28px 24px 56px;display:flex;flex-direction:column;gap:16px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap"><h1 style="font-size:40px;font-weight:800">Notifications</h1><button style="border:0;background:none;color:#0B6E4F;font:600 15px Hind,sans-serif;cursor:pointer">Mark all as read</button></div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap">
+    <a href="#" style="padding:8px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:14px">All</a>
+    <a href="#" style="padding:8px 14px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600;font-size:14px">Bookings</a>
+    <a href="#" style="padding:8px 14px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600;font-size:14px">Payments</a>
+    <a href="#" style="padding:8px 14px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600;font-size:14px">Reports</a>
+    <a href="#" style="padding:8px 14px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600;font-size:14px">Offers</a>
+  </div>
+  <div style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;overflow:hidden">
+    <sc-for list="{{items}}" as="n" hint-placeholder-count="8">
+      <a href="{{n.href}}" style="{{n.row}}">
+        <span style="{{n.dot}}"></span>
+        <div style="flex:1;min-width:0"><b style="font-size:16px">{{n.title}}</b><p style="font-size:14px;color:#3D4A5C;margin-top:2px">{{n.body}}</p></div>
+        <span style="font-size:13px;color:#5E6B7D;white-space:nowrap">{{n.time}}</span>
+      </a>
+    </sc-for>
+  </div>
+  <p style="font-size:13px;color:#5E6B7D">Transactional messages always arrive. Offers and marketing can be turned off in Profile. Email is sent only if you added one.</p>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const row = (unread) => 'display:flex;gap:14px;align-items:flex-start;padding:16px 20px;border-bottom:1px solid #E3E6EB;text-decoration:none;color:#13213C;background:' + (unread ? '#F3FAF7' : '#FFFFFF');
+    const dot = (c) => 'width:10px;height:10px;border-radius:50%;margin-top:7px;flex:none;background:' + c;
+    const mk = (t,b,time,c,u,h) => ({ title:t, body:b, time:time, dot:dot(c), row:row(u), href:h });
+    return { items: [
+      mk('Worker accepted', 'Rakesh Yadav accepted your tap repair request. Confirm the booking.', '2 min', '#0B6E4F', true, 'RequestStatus.dc.html'),
+      mk('Searching workers', 'Your fan installation request was sent to 6 electricians nearby.', '5 min', '#F4A51C', true, 'RequestStatus.dc.html'),
+      mk('Booking reminder', 'Imran Khan (Driver) arrives Tue 14 Oct at 9:00 AM.', '1 h', '#1D4ED8', false, 'BookingDetail.dc.html'),
+      mk('Job completed', 'Arjun Mehta marked your booking complete. Rate your experience.', 'Yesterday', '#0B6E4F', false, 'BookingDetail.dc.html'),
+      mk('Request expired', 'No one accepted your 2 labourers request in time. Try a wider area.', '2 Oct', '#5E6B7D', false, 'RequestStatus.dc.html'),
+      mk('Report update', 'Complaint #C-2201 is under review. We will reply within 48 hours.', '28 Sep', '#C2362F', false, 'ReportIssue.dc.html'),
+      mk('Payment success', '₹9 received. Access active till 8 Nov 2026.', '9 Oct', '#0B6E4F', false, 'Payments.dc.html'),
+      mk('Access ending soon', 'Your 30-day access ends in 3 days. Renew anytime, no auto-charge.', 'Sample', '#F4A51C', false, 'Payments.dc.html')
+    ] };
+  }
+}
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

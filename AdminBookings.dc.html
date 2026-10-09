@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia Admin · Requests and bookings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1200px;background:#F4F6F9;display:flex;flex-wrap:wrap">
+<nav style="flex:1 1 230px;max-width:250px;background:#0E1830;padding:18px 12px;display:flex;flex-direction:column;gap:2px;font-size:14px">
+  <a href="AdminDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#FFFFFF;padding:4px 8px 16px"><span style="width:30px;height:30px;border-radius:8px;background:#0B6E4F;display:flex;align-items:center;justify-content:center;font:800 18px 'Baloo 2',sans-serif">K</span><span style="font:800 20px 'Baloo 2',sans-serif">karvia</span><span style="font-size:11px;font-weight:700;padding:2px 6px;border-radius:5px;background:#22314F;color:#8FD3BA">ADMIN</span></a>
+  <a href="AdminDashboard.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Dashboard</a>
+  <a href="AdminVerification.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Verification</a>
+  <a href="AdminWorkerDetail.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Workers</a>
+  <a href="AdminClients.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Clients</a>
+  <a href="AdminBookings.dc.html" style="padding:9px 12px;border-radius:8px;background:#22314F;color:#FFFFFF;font-weight:700;text-decoration:none">Requests &amp; bookings</a>
+  <a href="AdminPayments.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Payments &amp; plans</a>
+  <a href="AdminComplaints.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Complaints</a>
+  <a href="AdminLeads.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Leads</a>
+  <a href="TelecallerConsole.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Telecaller view</a>
+  <span style="padding:14px 12px 4px;color:#7D8AA3;font-size:11px;font-weight:700;letter-spacing:.08em">CONFIGURATION</span>
+  <a href="AdminCategories.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Categories</a>
+  <a href="AdminMatching.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Matching rules</a>
+  <a href="AdminSettings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Business settings</a>
+  <a href="AdminRoles.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Roles &amp; audit log</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;padding:24px 28px 48px;display:flex;flex-direction:column;gap:16px">
+  <h1 style="font-size:34px;font-weight:800">Requests &amp; bookings</h1>
+  <div style="display:flex;gap:6px;flex-wrap:wrap">
+    <a href="#" style="padding:8px 13px;border-radius:999px;background:#13213C;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:14px">All</a>
+    <a href="#" style="padding:8px 13px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600;font-size:14px">Searching (12)</a>
+    <a href="#" style="padding:8px 13px;border-radius:999px;border:1px solid #F0DDB4;background:#FFF3DC;color:#8A5A00;text-decoration:none;font-weight:600;font-size:14px">No worker found (7)</a>
+    <a href="#" style="padding:8px 13px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600;font-size:14px">Accepted</a>
+    <a href="#" style="padding:8px 13px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600;font-size:14px">In progress</a>
+    <a href="#" style="padding:8px 13px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600;font-size:14px">Completed</a>
+    <a href="#" style="padding:8px 13px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600;font-size:14px">Cancelled</a>
+    <a href="#" style="padding:8px 13px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600;font-size:14px">Disputed</a>
+    <a href="#" style="padding:8px 13px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600;font-size:14px">Quotes</a>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+    <div style="flex:999 1 560px;min-width:0;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;min-width:820px;font-size:14px">
+        <thead><tr style="text-align:left;color:#5E6B7D;font-size:12px;text-transform:uppercase;letter-spacing:.04em"><th style="padding:12px 14px;border-bottom:1px solid #E3E6EB">ID</th><th style="padding:12px 14px;border-bottom:1px solid #E3E6EB">Service</th><th style="padding:12px 14px;border-bottom:1px solid #E3E6EB">Client</th><th style="padding:12px 14px;border-bottom:1px solid #E3E6EB">Worker</th><th style="padding:12px 14px;border-bottom:1px solid #E3E6EB">Type</th><th style="padding:12px 14px;border-bottom:1px solid #E3E6EB">Notified</th><th style="padding:12px 14px;border-bottom:1px solid #E3E6EB">Status</th></tr></thead>
+        <tbody>
+          <sc-for list="{{rows}}" as="r" hint-placeholder-count="8">
+            <tr style="{{r.rowStyle}}"><td style="padding:12px 14px;border-bottom:1px solid #E3E6EB;font-weight:600">{{r.id}}</td><td style="padding:12px 14px;border-bottom:1px solid #E3E6EB">{{r.svc}}</td><td style="padding:12px 14px;border-bottom:1px solid #E3E6EB">{{r.client}}</td><td style="padding:12px 14px;border-bottom:1px solid #E3E6EB">{{r.worker}}</td><td style="padding:12px 14px;border-bottom:1px solid #E3E6EB;color:#5E6B7D">{{r.type}}</td><td style="padding:12px 14px;border-bottom:1px solid #E3E6EB">{{r.n}}</td><td style="padding:12px 14px;border-bottom:1px solid #E3E6EB"><span style="{{r.pill}}">{{r.st}}</span></td></tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+    <aside style="flex:1 1 320px;min-width:0;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:17px">KRV-10497</b><span style="font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:#FFF3DC;color:#8A5A00">NO WORKER FOUND</span></div>
+      <p style="font-size:14px;color:#3D4A5C">Electrician · Fan installation · Gr. Noida West · Instant</p>
+      <div style="display:grid;grid-template-columns:70px 1fr;gap:5px 10px;font-size:13px">
+        <span style="color:#5E6B7D">10:14:02</span><span>Requested</span>
+        <span style="color:#5E6B7D">10:14:03</span><span>5 KM → 3 eligible, notified</span>
+        <span style="color:#5E6B7D">10:15:03</span><span>Timeout · 1 rejected, 2 no reply</span>
+        <span style="color:#5E6B7D">10:15:04</span><span>Expanded to 10 KM → 4 notified</span>
+        <span style="color:#5E6B7D">10:16:04</span><span>Timeout · status No worker found</span>
+      </div>
+      <span style="font-size:13px;font-weight:600;margin-top:6px">Admin intervention</span>
+      <select aria-label="Assign worker" style="padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"><option>Assign worker manually…</option></select>
+      <div style="display:flex;gap:6px;flex-wrap:wrap"><button style="flex:1;padding:10px;border-radius:9px;border:0;background:#13213C;color:#FFFFFF;font:600 13px Hind,sans-serif;cursor:pointer">Re-route 15 KM</button><button style="flex:1;padding:10px;border-radius:9px;border:1px solid #E7B3AE;background:#FFFFFF;font:600 13px Hind,sans-serif;color:#A3261F;cursor:pointer">Admin cancel</button></div>
+      <p style="font-size:12px;color:#5E6B7D">Every status change is stored in BookingStatusHistory with actor and reason.</p>
+    </aside>
+  </div>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const pill = (bg, c) => 'font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;background:' + bg + ';color:' + c;
+    const S = { s: pill('#FFF3DC','#8A5A00'), n: pill('#FBE4E2','#A3261F'), a: pill('#E8EEFC','#1D4ED8'), p: pill('#E3F2EC','#0B6E4F'), c: pill('#F4F6F9','#3D4A5C'), d: pill('#13213C','#FFFFFF') };
+    const r = (id, svc, client, worker, type, n, st, k, sel) => ({ id, svc, client, worker, type, n, st, pill: S[k], rowStyle: sel ? 'background:#FFFBF2' : '' });
+    return { rows: [
+      r('KRV-10497','Fan installation','Karan M.','—','Instant','7','NO WORKER FOUND','n',true),
+      r('KRV-10496','Deep cleaning','Neha G.','—','Scheduled','11','SEARCHING','s',false),
+      r('KRV-10482','Tap repair','Priya S.','Rakesh Y.','Scheduled','6','CONFIRMED','a',false),
+      r('KRV-10470','Driver 8 hrs','Priya S.','Imran K.','Scheduled','9','CONFIRMED','a',false),
+      r('KRV-10466','Deep cleaning','Priya S.','Sunita D.','Instant','5','IN PROGRESS','p',false),
+      r('KRV-10511','2BHK painting','Vikas S.','3 quotes','Quote','8','QUOTES IN','s',false),
+      r('KRV-10401','Fan installation','Priya S.','Arjun M.','Instant','4','COMPLETED','c',false),
+      r('KRV-10388','Labour × 2','Amit R.','Ramesh P.','Scheduled','12','DISPUTED','d',false)
+    ] };
+  }
+}
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

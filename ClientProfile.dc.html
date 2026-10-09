@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia · My profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1000px;background:#F4F6F9">
+<header style="background:#FFFFFF;border-bottom:1px solid #E3E6EB">
+  <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px">
+    <a href="ClientDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#13213C"><span style="width:34px;height:34px;border-radius:10px;background:#0B6E4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font:800 20px 'Baloo 2',sans-serif">K</span><span style="font:800 24px 'Baloo 2',sans-serif">karvia</span></a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;flex:1 1 480px;font-weight:500;font-size:15px">
+      <a href="ClientDashboard.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Home</a>
+      <a href="FindWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Find worker</a>
+      <a href="RequestStatus.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My requests</a>
+      <a href="MyBookings.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My bookings</a>
+      <a href="MyWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My workers</a>
+    </nav>
+    <a href="ClientProfile.dc.html" aria-label="Profile" style="width:42px;height:42px;border-radius:50%;background:#0B6E4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700">PS</a>
+  </div>
+</header>
+
+<main style="max-width:1000px;margin:0 auto;padding:28px 24px 56px;display:flex;flex-direction:column;gap:16px">
+  <h1 style="font-size:40px;font-weight:800">My profile</h1>
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px">
+    <h2 style="font-size:22px">Personal details</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:6px"><label for="n" style="font-weight:600;font-size:14px">Name</label><input id="n" value="Priya Sharma" style="padding:12px;border-radius:10px;border:1px solid #CBD2DB;font:inherit"></div>
+      <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:6px"><label for="m" style="font-weight:600;font-size:14px">Mobile (login)</label><input id="m" value="+91 98765 43210" disabled style="padding:12px;border-radius:10px;border:1px solid #E3E6EB;font:inherit;background:#F4F6F9;color:#5E6B7D"></div>
+      <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:6px"><label for="e" style="font-weight:600;font-size:14px">Email (optional)</label><input id="e" placeholder="Add email for receipts" style="padding:12px;border-radius:10px;border:1px solid #CBD2DB;font:inherit"></div>
+      <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:6px"><label for="l" style="font-weight:600;font-size:14px">Language</label><select id="l" style="padding:12px;border-radius:10px;border:1px solid #CBD2DB;font:inherit"><option>English</option><option>हिन्दी</option></select></div>
+    </div>
+  </section>
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center"><h2 style="font-size:22px">Saved addresses</h2><a href="#" style="font-weight:600">+ Add address</a></div>
+    <div style="display:flex;gap:12px;align-items:center;padding:14px;border:2px solid #0B6E4F;border-radius:12px;flex-wrap:wrap"><b style="flex:1 1 260px">Home · B-204, Sector 62, Noida 201309</b><span style="font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:#E3F2EC;color:#0B6E4F">DEFAULT</span><a href="#" style="font-weight:600">Edit</a></div>
+    <div style="display:flex;gap:12px;align-items:center;padding:14px;border:1px solid #CBD2DB;border-radius:12px;flex-wrap:wrap"><b style="flex:1 1 260px">Parents · H-17, Raj Nagar, Ghaziabad</b><a href="#" style="font-weight:600">Edit</a></div>
+  </section>
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px">
+    <h2 style="font-size:22px">Communication preferences</h2>
+    <label style="display:flex;justify-content:space-between;gap:12px;align-items:center;padding:8px 0"><span><b>Booking &amp; payment updates</b><span style="display:block;font-size:14px;color:#5E6B7D">SMS + in-app. Required for your bookings.</span></span><input type="checkbox" checked disabled style="width:20px;height:20px"></label>
+    <label style="display:flex;justify-content:space-between;gap:12px;align-items:center;padding:8px 0;border-top:1px solid #E3E6EB"><span><b>Offers and news</b><span style="display:block;font-size:14px;color:#5E6B7D">Optional. Turn off any time.</span></span><input type="checkbox" style="width:20px;height:20px"></label>
+  </section>
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center">
+    <div><b>Privacy</b><p style="font-size:14px;color:#5E6B7D">Download your data or delete your account.</p></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button style="padding:11px 16px;border-radius:10px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 14px Hind,sans-serif;color:#13213C;cursor:pointer">Request my data</button><button style="padding:11px 16px;border-radius:10px;border:1px solid #E7B3AE;background:#FFFFFF;font:600 14px Hind,sans-serif;color:#A3261F;cursor:pointer">Delete account</button><a href="Main.dc.html" style="padding:11px 16px;border-radius:10px;background:#13213C;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:14px">Log out</a></div>
+  </section>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>
