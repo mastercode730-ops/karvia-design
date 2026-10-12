@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia · Worker meetings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1200px;background:#F4F6F9">
+<header style="background:#13213C">
+  <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px">
+    <a href="WorkerDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#FFFFFF"><span style="width:34px;height:34px;border-radius:10px;background:#F4A51C;color:#13213C;display:flex;align-items:center;justify-content:center;font:800 20px 'Baloo 2',sans-serif">K</span><span style="font:800 24px 'Baloo 2',sans-serif">karvia</span><span style="font-size:13px;font-weight:600;padding:3px 8px;border-radius:6px;background:#22314F;color:#F4A51C">WORKER</span></a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;flex:1 1 520px;font-weight:500;font-size:15px">
+      <a href="WorkerDashboard.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Dashboard</a>
+      <a href="WorkerJobs.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Requests &amp; jobs</a>
+      <a href="WorkerPricing.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Services &amp; pricing</a>
+      <a href="WorkerProfileEdit.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Profile</a>
+      <a href="WorkerDocuments.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Documents</a>
+      <a href="WorkerSubscription.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">My plan</a>
+      <a href="WorkerReviews.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Reviews</a>
+      <a href="WorkerMeetings.dc.html" style="padding:9px 12px;border-radius:9px;background:#22314F;color:#FFFFFF;font-weight:700;text-decoration:none">Meetings</a>
+    </nav>
+    <span style="width:40px;height:40px;border-radius:50%;background:#DCE7F5;color:#13213C;display:flex;align-items:center;justify-content:center;font-weight:700">RY</span>
+  </div>
+</header>
+
+<main style="max-width:1000px;margin:0 auto;padding:28px 24px 56px;display:flex;flex-direction:column;gap:18px">
+  <div><h1 style="font-size:40px;font-weight:800">Meetings</h1><p style="color:#5E6B7D">Karvia meets its workers regularly to share updates, training and rewards. You get an SMS before each one.</p></div>
+
+  <section style="background:#FFFFFF;border:2px solid #F4A51C;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+      <span style="font-size:13px;font-weight:700;color:#8A5A00;letter-spacing:.06em">NEXT MEETING · EVERY MONTH</span>
+      <span style="{{rsvpPill}}">{{rsvpLabel}}</span>
+    </div>
+    <h2 style="font-size:30px">Monthly worker meet · October</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;font-size:15px">
+      <div style="background:#F4F6F9;border-radius:12px;padding:12px"><span style="color:#5E6B7D;font-size:13px">When</span><b style="display:block">Sat 1 Nov · 11:00 AM</b><span style="font-size:13px;color:#5E6B7D">45 minutes</span></div>
+      <div style="background:#F4F6F9;border-radius:12px;padding:12px"><span style="color:#5E6B7D;font-size:13px">Where</span><b style="display:block">Online · Google Meet</b><span style="font-size:13px;color:#5E6B7D">Join from your phone</span></div>
+      <div style="background:#F4F6F9;border-radius:12px;padding:12px"><span style="color:#5E6B7D;font-size:13px">Organised by</span><b style="display:block">Karvia team</b><span style="font-size:13px;color:#5E6B7D">Optional</span></div>
+    </div>
+    <div><b style="font-size:15px">Agenda</b><ol style="margin:6px 0 0;padding-left:20px;line-height:1.6;color:#3D4A5C"><li>New features in the app</li><li>Safety and behaviour with clients</li><li>Karvia Stars of the month</li><li>Your questions</li></ol></div>
+    <p style="font-size:14px;background:#FFF3DC;border-radius:10px;padding:10px 12px">You have a job at 10:30 AM that day (Tap repair, Sector 61). If it runs late, you can skip the meeting. Jobs come first.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button onClick="{{yes}}" style="{{yesStyle}}">I’ll attend</button>
+      <button onClick="{{no}}" style="{{noStyle}}">Can’t attend</button>
+      <button style="padding:14px 18px;border-radius:12px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 16px Hind,sans-serif;color:#13213C;cursor:pointer">Add to calendar</button>
+      <button disabled style="padding:14px 18px;border-radius:12px;border:0;background:#EEF1F5;font:600 16px Hind,sans-serif;color:#5E6B7D">Join (opens 10 min before)</button>
+    </div>
+  </section>
+
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;overflow:hidden">
+    <div style="padding:16px 20px;font-weight:700;font-size:18px">Other upcoming</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding:14px 20px;border-top:1px solid #E3E6EB">
+      <div style="flex:1 1 260px"><b>Weekly plumber check-in</b><p style="font-size:14px;color:#5E6B7D">Every Tuesday · 6:00 PM · Phone conference</p></div>
+      <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E3F2EC;color:#0B6E4F">COMING</span>
+    </div>
+  </section>
+
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;overflow:hidden">
+    <div style="padding:16px 20px;font-weight:700;font-size:18px">Past meetings</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding:14px 20px;border-top:1px solid #E3E6EB">
+      <div style="flex:1 1 260px"><b>Monthly worker meet · September</b><p style="font-size:14px;color:#5E6B7D">6 Sep · Notes: new quote feature, festive season tips</p></div>
+      <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#E3F2EC;color:#0B6E4F">ATTENDED</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding:14px 20px;border-top:1px solid #E3E6EB">
+      <div style="flex:1 1 260px"><b>Weekly plumber check-in</b><p style="font-size:14px;color:#5E6B7D">7 Oct</p></div>
+      <span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#EEF1F5;color:#5E6B7D">MISSED</span>
+    </div>
+  </section>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { rsvp: '' }; }
+  renderVals() {
+    const r = this.state.rsvp;
+    const btn = (on, color) => 'padding:14px 22px;border-radius:12px;font:700 16px Hind,sans-serif;cursor:pointer;border:' + (on ? '0;background:' + color + ';color:#FFFFFF' : '1px solid #CBD2DB;background:#FFFFFF;color:#13213C');
+    return {
+      yes: () => this.setState({ rsvp: 'yes' }), no: () => this.setState({ rsvp: 'no' }),
+      yesStyle: btn(r === 'yes', '#0B6E4F'), noStyle: btn(r === 'no', '#A3261F'),
+      rsvpLabel: r === 'yes' ? 'YOU’RE COMING' : r === 'no' ? 'NOT COMING' : 'PLEASE REPLY',
+      rsvpPill: 'font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;' + (r === 'yes' ? 'background:#E3F2EC;color:#0B6E4F' : r === 'no' ? 'background:#FBE6E4;color:#A3261F' : 'background:#FFF3DC;color:#8A5A00')
+    };
+  }
+}
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

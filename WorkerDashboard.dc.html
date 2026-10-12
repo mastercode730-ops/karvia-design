@@ -28,6 +28,7 @@ a{color:#0B6E4F}a:hover{color:#08523B}
       <a href="WorkerDocuments.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Documents</a>
       <a href="WorkerSubscription.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">My plan</a>
       <a href="WorkerReviews.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Reviews</a>
+      <a href="WorkerMeetings.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Meetings</a>
     </nav>
     <span style="width:40px;height:40px;border-radius:50%;background:#DCE7F5;color:#13213C;display:flex;align-items:center;justify-content:center;font-weight:700">RY</span>
   </div>
@@ -48,6 +49,7 @@ a{color:#0B6E4F}a:hover{color:#08523B}
       <div style="display:flex;justify-content:space-between;font-size:14px"><span>Verified</span><b style="color:#0B6E4F">✓ Yes</b></div>
       <div style="display:flex;justify-content:space-between;font-size:14px"><span>Plan</span><b style="color:#0B6E4F">Trial · 3 days left</b></div>
       <div style="display:flex;justify-content:space-between;font-size:14px"><span>Availability</span><b>{{availWord}}</b></div>
+      <div style="display:flex;justify-content:space-between;font-size:14px"><span>Getting requests near</span><a href="LocationChange.dc.html#worker" style="font-weight:700">Noida Sec 63 · Change</a></div>
       <div style="display:flex;justify-content:space-between;font-size:14px"><span>Service area</span><b>5 KM of job</b></div>
     </section>
   </div>
@@ -82,6 +84,11 @@ a{color:#0B6E4F}a:hover{color:#08523B}
   <sc-if value="{{showBusy}}" hint-placeholder-val="{{ false }}">
     <section style="background:#FFFFFF;border:1px dashed #CBD2DB;border-radius:20px;padding:20px"><p style="color:#3D4A5C">You are BUSY. No new requests will be sent until you switch to AVAILABLE. Accepted jobs continue as normal.</p></section>
   </sc-if>
+
+  <a href="WorkerMeetings.dc.html" style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:16px;padding:16px 20px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;text-decoration:none;color:#13213C">
+    <span style="display:flex;gap:12px;align-items:center"><span style="font-size:26px">📅</span><span><b>Monthly worker meet · Sat 1 Nov, 11:00 AM</b><span style="display:block;font-size:14px;color:#5E6B7D">Online · Google Meet · Please tell us if you’re coming</span></span></span>
+    <span style="padding:9px 14px;border-radius:10px;background:#F4A51C;color:#13213C;font-weight:700">Reply</span>
+  </a>
 
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px">
     <a href="WorkerJobs.dc.html" style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:16px;text-decoration:none;color:#13213C"><span style="font-size:14px;color:#5E6B7D">New requests</span><b style="display:block;font:800 30px 'Baloo 2',sans-serif;color:#8A5A00">1</b></a>

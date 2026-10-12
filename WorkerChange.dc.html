@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia · Change worker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1300px;background:#F4F6F9">
+<header style="background:#FFFFFF;border-bottom:1px solid #E3E6EB">
+  <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px">
+    <a href="ClientDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#13213C"><span style="width:34px;height:34px;border-radius:10px;background:#0B6E4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font:800 20px 'Baloo 2',sans-serif">K</span><span style="font:800 24px 'Baloo 2',sans-serif">karvia</span></a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;flex:1 1 480px;font-weight:500;font-size:15px">
+      <a href="ClientDashboard.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Home</a>
+      <a href="FindWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Find worker</a>
+      <a href="RequestStatus.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My requests</a>
+      <a href="MyBookings.dc.html" style="padding:9px 12px;border-radius:9px;background:#E3F2EC;color:#0B6E4F;font-weight:700;text-decoration:none">My bookings</a>
+      <a href="MyWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My workers</a>
+    </nav>
+    <a href="LocationChange.dc.html" style="padding:7px 12px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;font-size:14px;font-weight:600;text-decoration:none">📍 Sector 62, Noida ▾</a>
+    <a href="Payments.dc.html" style="padding:7px 12px;border-radius:999px;background:#FFF3DC;color:#8A5A00;font-size:14px;font-weight:600;text-decoration:none">₹9 access · 22 days left</a>
+  </div>
+</header>
+
+<main style="max-width:960px;margin:0 auto;padding:28px 24px 56px;display:flex;flex-direction:column;gap:16px">
+  <a href="MyBookings.dc.html" style="font-weight:600;font-size:14px">← My bookings</a>
+
+  <section style="background:#FFFFFF;border:2px solid #F4A51C;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:10px">
+    <span style="align-self:flex-start;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:#FFF3DC;color:#8A5A00;letter-spacing:.04em">NEEDS A NEW WORKER</span>
+    <h1 style="font-size:34px;font-weight:800">Your plumber for today 3:00 PM is no longer available</h1>
+    <p style="color:#3D4A5C;font-size:17px;line-height:1.5">Sorry for the trouble. Rakesh Y. can’t do this job. This is not about anything you did. Choose what you’d like, and we’ll help you right away.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px;background:#F4F6F9;border-radius:12px;padding:12px 14px">
+      <span><b>Bathroom fitting</b></span><span>Today · 3:00 PM</span><span>Sector 61, Noida</span><span>#B-8812</span>
+    </div>
+  </section>
+
+  <sc-if value="{{choosing}}">
+  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
+    <sc-for list="{{options}}" as="o">
+      <button onClick="{{o.pick}}" style="{{o.style}}">
+        <span style="font-size:28px">{{o.icon}}</span>
+        <b style="font-size:19px;font-family:'Baloo 2',sans-serif">{{o.title}}</b>
+        <span style="color:#3D4A5C">{{o.desc}}</span>
+        <span style="{{o.tagStyle}}">{{o.tag}}</span>
+      </button>
+    </sc-for>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{searching}}">
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:20px;padding:24px;display:flex;flex-wrap:wrap;gap:20px;align-items:center">
+    <div style="width:88px;height:88px;border-radius:50%;border:7px solid #E3F2EC;border-top-color:#0B6E4F;display:flex;align-items:center;justify-content:center;font:800 24px 'Baloo 2',sans-serif;flex:none">0:42</div>
+    <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:6px">
+      <h2 style="font-size:26px">Finding another plumber for 3:00 PM</h2>
+      <p style="color:#3D4A5C">Sent to 6 verified plumbers within 5 KM. Rakesh is not included. You’ll see the new worker’s rating and price and confirm before anything is final.</p>
+      <p style="font-size:14px;color:#5E6B7D">Price may differ a little from your old booking, because each worker sets their own rate.</p>
+    </div>
+    <button onClick="{{reset}}" style="padding:12px 16px;border-radius:10px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 15px Hind,sans-serif;color:#13213C;cursor:pointer">Choose something else</button>
+  </section>
+  <section style="background:#E3F2EC;border:2px solid #0B6E4F;border-radius:20px;padding:20px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+    <div style="display:flex;gap:12px;align-items:center"><span style="width:52px;height:52px;border-radius:50%;background:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:700">MS</span><div><b style="font-size:18px">Mohan S. accepted · 4.7 ★ · 140 jobs</b><p style="font-size:14px">0.6 KM away · ₹1,100 for bathroom fitting · Today 3:00 PM</p></div></div>
+    <div style="display:flex;gap:8px"><a href="BookingDetail.dc.html" style="padding:12px 18px;border-radius:10px;background:#0B6E4F;color:#FFFFFF;text-decoration:none;font-weight:700">Confirm Mohan</a><a href="WorkerProfile.dc.html" style="padding:12px 16px;border-radius:10px;border:1px solid #0B6E4F;color:#0B6E4F;text-decoration:none;font-weight:600;background:#FFFFFF">View profile</a></div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{cancelled}}">
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px">
+    <h2 style="font-size:26px">Booking cancelled. No charge, no penalty.</h2>
+    <p style="color:#3D4A5C">Your ₹9 access continues. You can send a new request anytime.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="NewRequest.dc.html" style="padding:12px 18px;border-radius:10px;background:#0B6E4F;color:#FFFFFF;text-decoration:none;font-weight:700">New request</a><button onClick="{{reset}}" style="padding:12px 16px;border-radius:10px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 15px Hind,sans-serif;color:#13213C;cursor:pointer">Undo (demo)</button></div>
+  </section>
+  </sc-if>
+
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+    <div><b style="font-size:17px">Karvia will call you by 1:00 PM</b><p style="font-size:14px;color:#5E6B7D">Or talk to us now. If we don’t hear from you by 1:30 PM, we start finding another plumber so you are not left without help. You can still cancel anytime.</p></div>
+    <a href="tel:+910000000000" style="padding:12px 18px;border-radius:10px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600">📞 Call Karvia support</a>
+  </section>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { mode: 'choose' }; }
+  renderVals() {
+    const card = (rec) => 'text-align:left;display:flex;flex-direction:column;gap:6px;padding:18px;border-radius:16px;cursor:pointer;font:400 15px Hind,sans-serif;color:#13213C;background:#FFFFFF;border:' + (rec ? '2px solid #0B6E4F' : '1px solid #E3E6EB');
+    const tag = (t) => t ? 'align-self:flex-start;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:#E3F2EC;color:#0B6E4F' : 'display:none';
+    const go = (m) => () => this.setState({ mode: m });
+    const O = [
+      { icon: '🔄', title: 'Find me another plumber', desc: 'Same time, same address. Sent to verified plumbers nearby.', tag: 'Recommended', pick: go('search'), rec: true },
+      { icon: '⭐', title: 'Pick a worker myself', desc: 'Choose from My workers or browse plumbers near Sector 61.', tag: '', pick: () => { try { location.href = 'FindWorkers.dc.html'; } catch (e) {} } },
+      { icon: '🕒', title: 'Change date or time', desc: 'Pick a new slot, then we find a worker for it.', tag: '', pick: () => { try { location.href = 'NewRequest.dc.html'; } catch (e) {} } },
+      { icon: '✕', title: 'Cancel booking', desc: 'Free. No penalty and no effect on your account.', tag: '', pick: go('cancel') }
+    ].map(o => Object.assign(o, { style: card(o.rec), tagStyle: tag(o.tag) }));
+    const m = this.state.mode;
+    return { options: O, choosing: m === 'choose', searching: m === 'search', cancelled: m === 'cancel', reset: go('choose') };
+  }
+}
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

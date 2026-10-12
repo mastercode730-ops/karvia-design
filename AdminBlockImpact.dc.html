@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia Admin · Suspend or block worker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1700px;background:#F4F6F9;display:flex;flex-wrap:wrap">
+<nav style="flex:1 1 230px;max-width:250px;background:#0E1830;padding:18px 12px;display:flex;flex-direction:column;gap:2px;font-size:14px">
+  <a href="AdminDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#FFFFFF;padding:4px 8px 16px"><span style="width:30px;height:30px;border-radius:8px;background:#0B6E4F;display:flex;align-items:center;justify-content:center;font:800 18px 'Baloo 2',sans-serif">K</span><span style="font:800 20px 'Baloo 2',sans-serif">karvia</span><span style="font-size:11px;font-weight:700;padding:2px 6px;border-radius:5px;background:#22314F;color:#8FD3BA">ADMIN</span></a>
+  <a href="AdminDashboard.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Dashboard</a>
+  <a href="AdminVerification.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Verification</a>
+  <a href="AdminWorkerDetail.dc.html" style="padding:9px 12px;border-radius:8px;background:#22314F;color:#FFFFFF;font-weight:700;text-decoration:none">Workers</a>
+  <a href="AdminClients.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Clients</a>
+  <a href="AdminBookings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Requests &amp; bookings</a>
+  <a href="AdminPayments.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Payments &amp; plans</a>
+  <a href="AdminComplaints.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Complaints</a>
+  <a href="AdminLeads.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Leads</a>
+  <a href="TelecallerConsole.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Telecaller view</a>
+  <a href="AdminRewards.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Top performers</a>
+  <a href="AdminMeetings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Worker meetings</a>
+  <span style="padding:14px 12px 4px;color:#7D8AA3;font-size:11px;font-weight:700;letter-spacing:.08em">CONFIGURATION</span>
+  <a href="AdminCategories.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Categories</a>
+  <a href="AdminMatching.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Matching rules</a>
+  <a href="AdminSettings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Business settings</a>
+  <a href="AdminRoles.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Roles &amp; audit log</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;padding:24px 28px 48px;display:flex;flex-direction:column;gap:16px;max-width:1100px">
+  <a href="AdminWorkerDetail.dc.html" style="font-weight:600;font-size:14px">← Rakesh Yadav</a>
+  <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">
+    <div style="display:flex;gap:14px;align-items:center"><span style="width:56px;height:56px;border-radius:50%;background:#DCE7F5;display:flex;align-items:center;justify-content:center;font:800 20px 'Baloo 2',sans-serif">RY</span><div><h1 style="font-size:28px;font-weight:800">{{heading}}</h1><p style="color:#5E6B7D">Rakesh Yadav · Plumber · Noida Sector 63 · ID W-20931</p></div></div>
+    <span style="{{statusPill}}">{{statusLabel}}</span>
+  </div>
+
+  <ol style="list-style:none;margin:0;padding:0;display:flex;gap:6px;flex-wrap:wrap">
+    <sc-for list="{{steps}}" as="s"><li style="{{s.style}}">{{s.n}}. {{s.label}}</li></sc-for>
+  </ol>
+
+  <sc-if value="{{is1}}">
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px">
+    <b style="font-size:19px">What do you want to do?</b>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
+      <sc-for list="{{actions}}" as="a"><button onClick="{{a.pick}}" style="{{a.style}}"><b style="font-size:17px">{{a.label}}</b><span style="font-size:14px;color:#5E6B7D">{{a.desc}}</span></button></sc-for>
+    </div>
+    <sc-if value="{{isSuspend}}">
+      <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600;max-width:260px">Suspend for<select style="padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:400 15px Hind,sans-serif"><option>7 days</option><option>3 days</option><option>30 days</option><option>Until I reactivate</option></select></label>
+    </sc-if>
+    <label for="why" style="font-size:13px;font-weight:600">Reason (internal, saved to audit log)</label>
+    <select id="why" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"><option>Repeated poor reviews (3 reviews below 2★ in 30 days)</option><option>Complaint: misconduct (#C-2214)</option><option>No-show</option><option>Fraud or fake documents</option></select>
+    <label for="wm" style="font-size:13px;font-weight:600">Message to worker</label>
+    <textarea id="wm" rows="2" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit">Your account is {{actionPast}} after recent client reviews. Call Karvia support at [support number] to discuss.</textarea>
+    <button onClick="{{next}}" style="align-self:flex-start;padding:12px 20px;border-radius:10px;border:0;background:#13213C;color:#FFFFFF;font:700 15px Hind,sans-serif;cursor:pointer">Next: check upcoming bookings →</button>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{is2}}">
+  <section style="background:#FFF3DC;border:1px solid #F4D79A;border-radius:14px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start">
+    <span style="font-size:24px">⚠️</span>
+    <div><b style="font-size:17px">Rakesh has 3 upcoming bookings and 2 open quotes</b><p style="color:#3D4A5C">The first one starts <b>today at 3:00 PM (in 2 h 40 min)</b>. Choose what happens to each client before you {{actionVerb}}. Open quotes are withdrawn automatically.</p></div>
+  </section>
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;overflow:hidden">
+    <sc-for list="{{bookings}}" as="b">
+      <div style="padding:16px 18px;border-top:1px solid #E3E6EB;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between">
+          <div><b style="font-size:17px">{{b.when}}</b> <span style="{{b.soonStyle}}">{{b.soon}}</span><p style="font-size:14px;color:#5E6B7D">{{b.what}} · Client {{b.client}} · {{b.area}} · {{b.price}} · #{{b.id}}</p></div>
+          <span style="font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:#E8EEFC;color:#1D4ED8">{{b.status}}</span>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{b.opts}}" as="o"><button onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for>
+        </div>
+        <p style="font-size:13px;color:#5E6B7D">{{b.explain}}</p>
+      </div>
+    </sc-for>
+  </section>
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+    <b style="flex:1 1 220px">Who will call the clients?</b>
+    <select aria-label="Call owner" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"><option>Me (Admin · Neha)</option><option>Support · Anjali</option><option>Booking manager · Rohit</option></select>
+    <span style="font-size:13px;color:#5E6B7D;flex-basis:100%">A call task is created for every client asked to change worker, due 2 hours before the job (or right away if sooner).</span>
+  </section>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <button onClick="{{back}}" style="padding:12px 18px;border-radius:10px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 15px Hind,sans-serif;color:#13213C;cursor:pointer">← Back</button>
+    <button onClick="{{next}}" style="padding:12px 20px;border-radius:10px;border:0;background:#13213C;color:#FFFFFF;font:700 15px Hind,sans-serif;cursor:pointer">Review →</button>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{is3}}">
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px">
+    <b style="font-size:19px">Check before confirming</b>
+    <div style="display:grid;grid-template-columns:200px 1fr;gap:8px 16px;font-size:15px">
+      <span style="color:#5E6B7D">Action</span><b>{{actionLabel}}</b>
+      <span style="color:#5E6B7D">Worker</span><span>Logged out, set to BUSY, gets no new requests. Message sent.</span>
+      <span style="color:#5E6B7D">Open quotes</span><span>2 withdrawn. Those clients are told and can pick another quote.</span>
+      <sc-for list="{{summary}}" as="s"><span style="color:#5E6B7D">{{s.when}}</span><span><b>{{s.choice}}</b> · {{s.client}}</span></sc-for>
+    </div>
+    <div style="background:#F4F6F9;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px">
+      <b style="font-size:14px">What the client receives (SMS + in-app)</b>
+      <p style="font-size:15px;line-height:1.5">“Karvia: Your plumber for today 3:00 PM is no longer available. Please choose a new worker or cancel for free: [link]. Our team will also call you.”</p>
+      <p style="font-size:13px;color:#5E6B7D">The reason for the suspension or block is never shared with clients.</p>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button onClick="{{back}}" style="padding:12px 18px;border-radius:10px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 15px Hind,sans-serif;color:#13213C;cursor:pointer">← Back</button>
+      <button onClick="{{next}}" style="padding:12px 20px;border-radius:10px;border:0;background:#A3261F;color:#FFFFFF;font:700 15px Hind,sans-serif;cursor:pointer">Confirm: {{actionLabel}}</button>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{is4}}">
+  <section style="background:#E3F2EC;border:2px solid #0B6E4F;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:4px">
+    <b style="font-size:19px;color:#0B6E4F">Done. Rakesh is {{actionPast}}.</b>
+    <p>Clients have been notified. Now call them. The list below is also in Requests &amp; bookings → “Needs new worker”.</p>
+  </section>
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;overflow:hidden">
+    <div style="padding:14px 18px;font-weight:700;font-size:17px">Calls to make</div>
+    <sc-for list="{{calls}}" as="c">
+      <div style="padding:14px 18px;border-top:1px solid #E3E6EB;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center">
+        <div style="flex:1 1 300px;min-width:0"><b>{{c.client}} · {{c.phone}}</b><p style="font-size:14px;color:#5E6B7D">{{c.when}} · {{c.what}} · call by <b style="color:#A3261F">{{c.due}}</b></p><p style="font-size:13px;color:#3D4A5C">Client reply: <b>{{c.reply}}</b></p></div>
+        <a href="tel:+919800000000" style="padding:10px 14px;border-radius:9px;border:1px solid #CBD2DB;color:#13213C;text-decoration:none;font-weight:600">📞 Call</a>
+        <button onClick="{{c.done}}" style="{{c.doneStyle}}">{{c.doneLabel}}</button>
+      </div>
+    </sc-for>
+  </section>
+  <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:6px">
+    <b style="font-size:17px">Call script</b>
+    <p style="font-size:15px;line-height:1.55;color:#3D4A5C">“Namaste, main Karvia se bol rahi hoon. Aapki aaj 3 baje ki booking ke plumber ab available nahi hain. Hum aapko doosra verified plumber dila sakte hain, usi time par. Kya main dhoondh doon, ya aap khud chunna chahenge? Aap chahein to booking free mein cancel bhi kar sakte hain.”</p>
+    <p style="font-size:13px;color:#5E6B7D">Don’t share the reason. If the client asks, say the worker is not available and Karvia is checking the matter.</p>
+  </section>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <a href="WorkerChange.dc.html" style="padding:12px 18px;border-radius:10px;background:#0B6E4F;color:#FFFFFF;text-decoration:none;font-weight:700">See what the client sees →</a>
+    <button onClick="{{restart}}" style="padding:12px 18px;border-radius:10px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 15px Hind,sans-serif;color:#13213C;cursor:pointer">Restart demo</button>
+  </div>
+  </sc-if>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { step: 1, action: 'suspend', choice: { 0: 'change', 1: 'change', 2: 'change' }, called: {} }; }
+  renderVals() {
+    const st = this.state;
+    const A = {
+      suspend: ['Suspend', 'Temporary. No new requests, can be reactivated.', 'suspended', 'suspend'],
+      block: ['Block', 'Permanent. Logged out everywhere, cannot log in.', 'blocked', 'block'],
+      inactive: ['Make inactive', 'Hidden from clients until reactivated. No penalty.', 'inactive', 'make inactive']
+    };
+    const act = A[st.action];
+    const B = [
+      { when: 'Today · 3:00 PM', soon: 'in 2 h 40 min', what: 'Bathroom fitting', client: 'Vikas S.', area: 'Sector 61', price: '₹1,200 agreed', id: 'B-8812', status: 'CONFIRMED', phone: '+91 98xxxxx441', due: '1:00 PM today' },
+      { when: 'Tomorrow · 10:00 AM', soon: '', what: 'Tap / leak repair', client: 'Neha K.', area: 'Sector 62', price: '₹300 visit + ₹500 / hr', id: 'B-8840', status: 'CONFIRMED', phone: '+91 97xxxxx102', due: '8:00 AM tomorrow' },
+      { when: 'Sat 18 Oct · 9:00 AM', soon: '', what: 'Full pipeline work (quote)', client: 'Amit G.', area: 'Sector 50', price: '₹4,500 quote', id: 'B-8855', status: 'CONFIRMED', phone: '+91 99xxxxx876', due: '7:00 AM Sat' }
+    ];
+    const O = { change: 'Ask client to change worker', auto: 'Find a replacement for them', keep: 'Let this booking continue', cancel: 'Cancel booking' };
+    const EX = {
+      change: 'Client gets a notice with options (new worker / pick myself / change time / free cancel) and a call from Karvia. Recommended.',
+      auto: 'Karvia sends the same job to other eligible workers right away. The client is told and confirms the new worker and price.',
+      keep: 'Only for a short suspension when the job is safe to go ahead. The booking stays with Rakesh; new requests stop.',
+      cancel: 'Booking is cancelled with no penalty for the client. Use only if the client can’t be helped.'
+    };
+    const bookings = B.map((b, i) => {
+      const keys = Object.keys(O).filter(k => !(k === 'keep' && st.action === 'block'));
+      return Object.assign({}, b, {
+        soonStyle: b.soon ? 'font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:#FBE6E4;color:#A3261F;margin-left:6px' : 'display:none',
+        opts: keys.map(k => ({ label: O[k], pick: () => this.setState({ choice: Object.assign({}, st.choice, { [i]: k }) }), style: 'padding:8px 12px;border-radius:999px;font:600 13px Hind,sans-serif;cursor:pointer;border:1px solid ' + (st.choice[i] === k ? '#0B6E4F;background:#E3F2EC;color:#0B6E4F' : '#CBD2DB;background:#FFFFFF;color:#13213C') })),
+        explain: EX[st.choice[i]]
+      });
+    });
+    const replies = ['Wants a new worker · searching', 'Not answered yet', 'Not answered yet'];
+    const calls = B.map((b, i) => ({ b, i })).filter(x => st.choice[x.i] === 'change' || st.choice[x.i] === 'auto').map(({ b, i }) => {
+      const done = st.called[i];
+      return {
+        client: b.client, phone: b.phone, when: b.when, what: b.what, due: b.due, reply: done ? 'Called · ' + replies[i] : 'Waiting',
+        doneLabel: done ? '✓ Called' : 'Mark called', done: () => this.setState({ called: Object.assign({}, st.called, { [i]: !done }) }),
+        doneStyle: 'padding:10px 14px;border-radius:9px;font:600 14px Hind,sans-serif;cursor:pointer;border:' + (done ? '0;background:#0B6E4F;color:#FFFFFF' : '1px solid #0B6E4F;background:#FFFFFF;color:#0B6E4F')
+      };
+    });
+    const labels = ['Action', 'Upcoming bookings', 'Review', 'Call clients'];
+    return {
+      heading: st.step === 4 ? 'Worker ' + act[2] : act[0] + ' worker',
+      statusLabel: st.step === 4 ? act[2].toUpperCase() : 'VERIFIED · ACTIVE',
+      statusPill: 'font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;' + (st.step === 4 ? 'background:#FBE6E4;color:#A3261F' : 'background:#E3F2EC;color:#0B6E4F'),
+      steps: labels.map((l, i) => ({ n: i + 1, label: l, style: 'padding:8px 14px;border-radius:999px;font-weight:600;font-size:14px;' + (i + 1 === st.step ? 'background:#13213C;color:#FFFFFF' : i + 1 < st.step ? 'background:#E3F2EC;color:#0B6E4F' : 'background:#FFFFFF;color:#5E6B7D;border:1px solid #E3E6EB') })),
+      is1: st.step === 1, is2: st.step === 2, is3: st.step === 3, is4: st.step === 4,
+      actions: Object.keys(A).map(k => ({ label: A[k][0], desc: A[k][1], pick: () => this.setState({ action: k, choice: k === 'block' ? { 0: st.choice[0] === 'keep' ? 'change' : st.choice[0], 1: st.choice[1] === 'keep' ? 'change' : st.choice[1], 2: st.choice[2] === 'keep' ? 'change' : st.choice[2] } : st.choice }), style: 'text-align:left;display:flex;flex-direction:column;gap:4px;padding:14px;border-radius:12px;cursor:pointer;font:inherit;color:#13213C;border:' + (k === st.action ? '2px solid #A3261F;background:#FFF7F6' : '1px solid #CBD2DB;background:#FFFFFF') })),
+      isSuspend: st.action === 'suspend',
+      actionLabel: act[0] + ' Rakesh Yadav', actionPast: act[2], actionVerb: act[3],
+      bookings,
+      summary: B.map((b, i) => ({ when: b.when, client: b.client, choice: O[st.choice[i]] })),
+      calls,
+      next: () => this.setState({ step: Math.min(st.step + 1, 4) }), back: () => this.setState({ step: Math.max(st.step - 1, 1) }),
+      restart: () => this.setState({ step: 1, called: {} })
+    };
+  }
+}
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

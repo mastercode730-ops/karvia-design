@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia · Location changed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1500px;background:#F4F6F9">
+<div style="background:#13213C;color:#FFFFFF">
+  <div style="max-width:1240px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+    <span style="font-size:14px;color:#C3CCDA">Design preview: the same moment for a client and for a worker</span>
+    <div style="display:flex;gap:6px">
+      <button onClick="{{showClient}}" style="{{clientTab}}">Client view</button>
+      <button onClick="{{showWorker}}" style="{{workerTab}}">Worker view</button>
+    </div>
+  </div>
+</div>
+
+<sc-if value="{{isClient}}">
+<header style="background:#FFFFFF;border-bottom:1px solid #E3E6EB">
+  <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px">
+    <a href="ClientDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#13213C"><span style="width:34px;height:34px;border-radius:10px;background:#0B6E4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font:800 20px 'Baloo 2',sans-serif">K</span><span style="font:800 24px 'Baloo 2',sans-serif">karvia</span></a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;flex:1 1 480px;font-weight:500;font-size:15px">
+      <a href="ClientDashboard.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">Home</a>
+      <a href="FindWorkers.dc.html" style="padding:9px 12px;border-radius:9px;background:#E3F2EC;color:#0B6E4F;font-weight:700;text-decoration:none">Find worker</a>
+      <a href="RequestStatus.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My requests</a>
+      <a href="MyBookings.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My bookings</a>
+      <a href="MyWorkers.dc.html" style="padding:9px 12px;border-radius:9px;color:#13213C;text-decoration:none">My workers</a>
+    </nav>
+    <a href="LocationChange.dc.html" style="padding:7px 12px;border-radius:999px;border:1px solid #CBD2DB;color:#13213C;font-size:14px;font-weight:600;text-decoration:none">📍 Sector 62, Noida ▾</a>
+    <a href="Payments.dc.html" style="padding:7px 12px;border-radius:999px;background:#FFF3DC;color:#8A5A00;font-size:14px;font-weight:600;text-decoration:none">₹9 access · 22 days left</a>
+  </div>
+</header>
+<main style="max-width:1240px;margin:0 auto;padding:28px 24px 56px;display:flex;flex-direction:column;gap:18px">
+  <sc-if value="{{askClient}}">
+  <section style="background:#FFFFFF;border:2px solid #0B6E4F;border-radius:20px;padding:24px;display:flex;flex-wrap:wrap;gap:22px;align-items:center;box-shadow:0 18px 40px -24px rgba(11,110,79,.5)">
+    <div style="width:84px;height:84px;border-radius:50%;background:#E3F2EC;display:flex;align-items:center;justify-content:center;font-size:38px;flex:none">📍</div>
+    <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:6px">
+      <span style="font-size:13px;font-weight:700;color:#0B6E4F;letter-spacing:.06em">YOU ARE IN A NEW AREA</span>
+      <h1 style="font-size:32px;font-weight:800">You’re in Ambala Cantt now</h1>
+      <p style="color:#3D4A5C">Your saved location is <b>Home · Sector 62, Noida</b> (about 190 KM away). Where is the work?</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;flex:1 1 260px">
+      <button onClick="{{useHere}}" style="padding:14px 18px;border-radius:12px;border:0;background:#0B6E4F;color:#FFFFFF;font:700 16px Hind,sans-serif;cursor:pointer">Show workers near Ambala Cantt</button>
+      <button onClick="{{keepHome}}" style="padding:13px 18px;border-radius:12px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 15px Hind,sans-serif;color:#13213C;cursor:pointer">Keep Home (Noida). The work is there.</button>
+    </div>
+  </section>
+  </sc-if>
+
+  <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+    <div><h2 style="font-size:30px">{{clientTitle}}</h2><p style="color:#5E6B7D">{{clientNote}}</p></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E3E6EB;font-weight:600">Job location: {{jobLoc}} ▾</span>
+      <sc-if value="{{offerSave}}"><button onClick="{{save}}" style="padding:9px 14px;border-radius:10px;border:1px solid #0B6E4F;background:#FFFFFF;color:#0B6E4F;font:600 15px Hind,sans-serif;cursor:pointer">{{saveLabel}}</button></sc-if>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px">
+    <sc-for list="{{workers}}" as="w">
+      <div style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;gap:12px;align-items:center"><span style="width:48px;height:48px;border-radius:50%;background:#DCE7F5;display:flex;align-items:center;justify-content:center;font-weight:700">{{w.ini}}</span><div><b>{{w.name}}</b><p style="font-size:14px;color:#5E6B7D">{{w.cat}} · {{w.dist}}</p></div></div>
+        <p style="font-size:14px">{{w.rating}} ★ · {{w.jobs}} jobs · from {{w.price}}</p>
+        <a href="WorkerProfile.dc.html" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;text-align:center;text-decoration:none;color:#13213C;font-weight:600">View profile</a>
+      </div>
+    </sc-for>
+  </div>
+</main>
+</sc-if>
+
+<sc-if value="{{isWorker}}">
+<header style="background:#13213C">
+  <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px">
+    <a href="WorkerDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#FFFFFF"><span style="width:34px;height:34px;border-radius:10px;background:#F4A51C;color:#13213C;display:flex;align-items:center;justify-content:center;font:800 20px 'Baloo 2',sans-serif">K</span><span style="font:800 24px 'Baloo 2',sans-serif">karvia</span><span style="font-size:13px;font-weight:600;padding:3px 8px;border-radius:6px;background:#22314F;color:#F4A51C">WORKER</span></a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;flex:1 1 520px;font-weight:500;font-size:15px">
+      <a href="WorkerDashboard.dc.html" style="padding:9px 12px;border-radius:9px;background:#22314F;color:#FFFFFF;font-weight:700;text-decoration:none">Dashboard</a>
+      <a href="WorkerJobs.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Requests &amp; jobs</a>
+      <a href="WorkerPricing.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Services &amp; pricing</a>
+      <a href="WorkerProfileEdit.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Profile</a>
+      <a href="WorkerDocuments.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Documents</a>
+      <a href="WorkerSubscription.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">My plan</a>
+      <a href="WorkerReviews.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Reviews</a>
+      <a href="WorkerMeetings.dc.html" style="padding:9px 12px;border-radius:9px;color:#C3CCDA;text-decoration:none">Meetings</a>
+    </nav>
+    <span style="width:40px;height:40px;border-radius:50%;background:#DCE7F5;color:#13213C;display:flex;align-items:center;justify-content:center;font-weight:700">RY</span>
+  </div>
+</header>
+<main style="max-width:1240px;margin:0 auto;padding:28px 24px 56px;display:flex;flex-direction:column;gap:18px">
+  <section style="background:#FFFFFF;border:2px solid #F4A51C;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <span style="font-size:13px;font-weight:700;color:#8A5A00;letter-spacing:.06em">YOU ARE IN A NEW AREA</span>
+      <h1 style="font-size:32px;font-weight:800">You’re in Ambala Cantt now. Where do you want requests from?</h1>
+      <p style="color:#3D4A5C">Requests come only from jobs within {{radius}} of the place you choose.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
+      <button onClick="{{wHere}}" style="{{wHereStyle}}"><b style="font-size:18px">Where I am now</b><span>Ambala Cantt · updates while you are AVAILABLE</span><span style="font-size:13px;color:#5E6B7D">Good when you have moved or are travelling for work</span></button>
+      <button onClick="{{wHome}}" style="{{wHomeStyle}}"><b style="font-size:18px">My home work area</b><span>Noida Sector 63 (set in your profile)</span><span style="font-size:13px;color:#5E6B7D">You will get no requests while you are away</span></button>
+    </div>
+    <sc-if value="{{wIsHere}}">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:15px"><b>For how long?</b>
+        <sc-for list="{{durations}}" as="d"><button onClick="{{d.pick}}" style="{{d.style}}">{{d.label}}</button></sc-for>
+      </div>
+    </sc-if>
+    <button onClick="{{wConfirm}}" style="align-self:flex-start;padding:14px 22px;border-radius:12px;border:0;background:#0B6E4F;color:#FFFFFF;font:700 16px Hind,sans-serif;cursor:pointer">Save</button>
+    <sc-if value="{{wSaved}}"><p style="font-size:15px;background:#E3F2EC;color:#0B6E4F;border-radius:10px;padding:12px;font-weight:600">{{wSavedText}}</p></sc-if>
+  </section>
+
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+    <section style="flex:1 1 380px;min-width:0;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px">
+      <b style="font-size:18px">Your dashboard will show</b>
+      <div style="display:flex;justify-content:space-between;font-size:15px"><span>Getting requests near</span><b>{{wArea}}</b></div>
+      <div style="display:flex;justify-content:space-between;font-size:15px"><span>Your services and prices</span><b>Same as before</b></div>
+      <div style="display:flex;justify-content:space-between;font-size:15px"><span>Verification and plan</span><b style="color:#0B6E4F">Still valid</b></div>
+      <div style="display:flex;justify-content:space-between;font-size:15px"><span>Already booked jobs in Noida</span><b>Kept · reminder sent</b></div>
+    </section>
+    <section style="flex:1 1 380px;min-width:0;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px">
+      <b style="font-size:18px">Privacy</b>
+      <p style="font-size:15px;color:#3D4A5C;line-height:1.5">Clients never see your exact location, only the distance (for example “1.2 KM away”). Karvia uses your live location only while you are AVAILABLE and only to match requests.</p>
+    </section>
+  </div>
+</main>
+</sc-if>
+
+<section style="max-width:1240px;margin:0 auto;padding:0 24px 56px">
+  <div style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px">
+    <h2 style="font-size:24px">How location works (rules for development)</h2>
+    <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;line-height:1.5;color:#3D4A5C">
+      <li>Every time the app opens (with location permission), Karvia checks the phone’s location. If it is more than <b>25 KM</b> from the location in use, it asks. It never switches silently.</li>
+      <li><b>Client:</b> workers and requests are matched to the <b>job location</b>, not where the client is sitting. A client in Delhi can still book for their parents’ house in Ambala by picking that address.</li>
+      <li><b>Client:</b> “Save this address” adds the new place to saved addresses, so next time it is one tap.</li>
+      <li><b>Worker:</b> requests come from jobs within the radius of the worker’s chosen work location: home work area, or current location (refreshed every few minutes while AVAILABLE).</li>
+      <li><b>Worker:</b> “Today only” switches back to the home work area at midnight. If location permission is off, the home work area is used.</li>
+      <li>If the location can’t be found, the last chosen location is used and a “Set location” button is shown.</li>
+    </ul>
+  </div>
+</section>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    let worker = false; try { worker = location.hash === '#worker'; } catch (e) {}
+    this.state = { view: worker ? 'worker' : 'client', cChoice: '', saved: false, wChoice: 'here', dur: 'today', wSaved: false };
+  }
+  renderVals() {
+    const st = this.state;
+    const tab = (on) => 'padding:8px 14px;border-radius:999px;font:600 14px Hind,sans-serif;cursor:pointer;border:1px solid ' + (on ? '#F4A51C;background:#F4A51C;color:#13213C' : '#2E3D5C;background:transparent;color:#FFFFFF');
+    const here = st.cChoice === 'here';
+    const WA = [['Gurpreet S.', 'Plumber', '0.8 KM', 4.8, 96, '₹250'], ['Vikram R.', 'Plumber', '1.9 KM', 4.6, 54, '₹300'], ['Harjeet K.', 'Plumber', '3.4 KM', 4.7, 71, '₹280']];
+    const WN = [['Rakesh Y.', 'Plumber', '1.2 KM', 4.9, 212, '₹300'], ['Mohan S.', 'Plumber', '0.6 KM', 4.7, 140, '₹280'], ['Ajay P.', 'Plumber', '3.1 KM', 4.5, 63, '₹250']];
+    const chip = (on) => 'padding:8px 13px;border-radius:999px;font:600 14px Hind,sans-serif;cursor:pointer;border:1px solid ' + (on ? '#0B6E4F;background:#E3F2EC;color:#0B6E4F' : '#CBD2DB;background:#FFFFFF;color:#13213C');
+    const opt = (on) => 'text-align:left;display:flex;flex-direction:column;gap:4px;padding:16px;border-radius:14px;cursor:pointer;font:400 15px Hind,sans-serif;color:#13213C;border:' + (on ? '2px solid #0B6E4F;background:#F3FAF7' : '1px solid #CBD2DB;background:#FFFFFF');
+    const D = { today: 'Today only', always: 'Until I change it' };
+    return {
+      isClient: st.view === 'client', isWorker: st.view === 'worker',
+      clientTab: tab(st.view === 'client'), workerTab: tab(st.view === 'worker'),
+      showClient: () => this.setState({ view: 'client' }), showWorker: () => this.setState({ view: 'worker' }),
+      askClient: st.cChoice === '',
+      useHere: () => this.setState({ cChoice: 'here' }), keepHome: () => this.setState({ cChoice: 'home' }),
+      clientTitle: here ? 'Plumbers near Ambala Cantt' : 'Plumbers near Sector 62, Noida',
+      clientNote: here ? '3 verified workers within 5 KM of where you are now' : '3 verified workers within 5 KM of your Home address',
+      jobLoc: here ? 'Current location · Ambala Cantt' : 'Home · Sector 62, Noida',
+      offerSave: here, saveLabel: st.saved ? '✓ Saved as “Ambala”' : '+ Save this address',
+      save: () => this.setState({ saved: true }),
+      workers: (here ? WA : WN).map(w => ({ name: w[0], ini: w[0].replace(/[^A-Z]/g, ''), cat: w[1], dist: w[2] + ' away', rating: w[3], jobs: w[4], price: w[5] })),
+      radius: '5 KM',
+      wHere: () => this.setState({ wChoice: 'here', wSaved: false }), wHome: () => this.setState({ wChoice: 'home', wSaved: false }),
+      wHereStyle: opt(st.wChoice === 'here'), wHomeStyle: opt(st.wChoice === 'home'), wIsHere: st.wChoice === 'here',
+      durations: Object.keys(D).map(k => ({ label: D[k], style: chip(k === st.dur), pick: () => this.setState({ dur: k, wSaved: false }) })),
+      wConfirm: () => this.setState({ wSaved: true }), wSaved: st.wSaved,
+      wSavedText: st.wChoice === 'here' ? 'Saved. You will now get requests near Ambala Cantt' + (st.dur === 'today' ? ' until midnight.' : ' until you change it.') : 'Saved. You will keep getting requests near Noida Sector 63 only.',
+      wArea: st.wChoice === 'here' ? 'Ambala Cantt (current)' : 'Noida Sector 63 (home)'
+    };
+  }
+}
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

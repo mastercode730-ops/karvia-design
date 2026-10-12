@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karvia Admin · Worker meetings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;font-family:'Hind',system-ui,sans-serif;color:#13213C;background:#F4F6F9}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1.1}
+p{margin:0}
+a{color:#0B6E4F}a:hover{color:#08523B}
+</style>
+</head>
+<body>
+<div id="dc-root"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div style="min-height:1600px;background:#F4F6F9;display:flex;flex-wrap:wrap">
+<nav style="flex:1 1 230px;max-width:250px;background:#0E1830;padding:18px 12px;display:flex;flex-direction:column;gap:2px;font-size:14px">
+  <a href="AdminDashboard.dc.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#FFFFFF;padding:4px 8px 16px"><span style="width:30px;height:30px;border-radius:8px;background:#0B6E4F;display:flex;align-items:center;justify-content:center;font:800 18px 'Baloo 2',sans-serif">K</span><span style="font:800 20px 'Baloo 2',sans-serif">karvia</span><span style="font-size:11px;font-weight:700;padding:2px 6px;border-radius:5px;background:#22314F;color:#8FD3BA">ADMIN</span></a>
+  <a href="AdminDashboard.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Dashboard</a>
+  <a href="AdminVerification.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Verification</a>
+  <a href="AdminWorkerDetail.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Workers</a>
+  <a href="AdminClients.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Clients</a>
+  <a href="AdminBookings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Requests &amp; bookings</a>
+  <a href="AdminPayments.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Payments &amp; plans</a>
+  <a href="AdminComplaints.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Complaints</a>
+  <a href="AdminLeads.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Leads</a>
+  <a href="TelecallerConsole.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Telecaller view</a>
+  <a href="AdminRewards.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Top performers</a>
+  <a href="AdminMeetings.dc.html" style="padding:9px 12px;border-radius:8px;background:#22314F;color:#FFFFFF;font-weight:700;text-decoration:none">Worker meetings</a>
+  <span style="padding:14px 12px 4px;color:#7D8AA3;font-size:11px;font-weight:700;letter-spacing:.08em">CONFIGURATION</span>
+  <a href="AdminCategories.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Categories</a>
+  <a href="AdminMatching.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Matching rules</a>
+  <a href="AdminSettings.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Business settings</a>
+  <a href="AdminRoles.dc.html" style="padding:9px 12px;border-radius:8px;color:#C3CCDA;text-decoration:none">Roles &amp; audit log</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;padding:24px 28px 48px;display:flex;flex-direction:column;gap:16px">
+  <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between">
+    <div><h1 style="font-size:32px;font-weight:800">Worker meetings</h1><p style="color:#5E6B7D">Schedule one-time, weekly or monthly meetings. Workers get the invite, reminders and a Join button in their app.</p></div>
+    <button onClick="{{openNew}}" style="padding:11px 18px;border-radius:10px;border:0;background:#0B6E4F;color:#FFFFFF;font:700 15px Hind,sans-serif;cursor:pointer">+ Schedule meeting</button>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+    <section style="flex:1 1 440px;min-width:0;background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px">
+      <b style="font-size:19px">{{formTitle}}</b>
+      <label for="mt" style="font-size:13px;font-weight:600">Title</label>
+      <input id="mt" value="Monthly worker meet · October" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit">
+
+      <span style="font-size:13px;font-weight:600">Who is invited</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <sc-for list="{{audiences}}" as="a"><button onClick="{{a.pick}}" style="{{a.style}}">{{a.label}}</button></sc-for>
+      </div>
+      <sc-if value="{{showFilter}}">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <select aria-label="Category" style="flex:1;padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"><option>Plumber</option><option>Electrician</option><option>Maid</option><option>Driver</option></select>
+          <select aria-label="City" style="flex:1;padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"><option>Delhi NCR</option><option>Ambala</option></select>
+        </div>
+      </sc-if>
+      <p style="font-size:14px;background:#F4F6F9;border-radius:9px;padding:10px">Will be sent to <b>{{inviteCount}} workers</b>. Suspended and blocked workers are never invited.</p>
+
+      <span style="font-size:13px;font-weight:600">Repeat</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <sc-for list="{{repeats}}" as="r"><button onClick="{{r.pick}}" style="{{r.style}}">{{r.label}}</button></sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px">
+        <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600">{{dateLabel}}<input value="{{dateValue}}" style="padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:400 15px Hind,sans-serif"></label>
+        <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600">Time<input value="11:00 AM" style="padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:400 15px Hind,sans-serif"></label>
+        <label style="display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600">Duration<select style="padding:9px;border-radius:9px;border:1px solid #CBD2DB;font:400 15px Hind,sans-serif"><option>45 minutes</option><option>1 hour</option><option>2 hours</option></select></label>
+      </div>
+      <sc-if value="{{isRepeat}}"><p style="font-size:14px;color:#3D4A5C">{{repeatNote}}</p></sc-if>
+
+      <span style="font-size:13px;font-weight:600">Where</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <sc-for list="{{modes}}" as="m"><button onClick="{{m.pick}}" style="{{m.style}}">{{m.label}}</button></sc-for>
+      </div>
+      <sc-if value="{{isOnline}}"><input aria-label="Meeting link" value="https://meet.google.com/kvr-wrkr-mtg" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"></sc-if>
+      <sc-if value="{{isVenue}}"><input aria-label="Venue" value="Karvia office, B-12 Sector 63, Noida" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit"></sc-if>
+
+      <label for="ag" style="font-size:13px;font-weight:600">Agenda (workers see this)</label>
+      <textarea id="ag" rows="3" style="padding:10px;border-radius:9px;border:1px solid #CBD2DB;font:inherit">1. New features in the app  2. Safety and behaviour with clients  3. Karvia Stars of the month  4. Your questions</textarea>
+
+      <span style="font-size:13px;font-weight:600">Reminders (SMS + in-app)</span>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;font-size:14px">
+        <label style="display:flex;gap:6px;align-items:center"><input type="checkbox" checked> On scheduling</label>
+        <label style="display:flex;gap:6px;align-items:center"><input type="checkbox" checked> 1 day before</label>
+        <label style="display:flex;gap:6px;align-items:center"><input type="checkbox" checked> 1 hour before</label>
+      </div>
+      <label style="display:flex;gap:8px;align-items:center;font-size:14px"><input type="checkbox"> Attendance is required (workers who miss 2 in a row get a telecaller call)</label>
+
+      <button onClick="{{save}}" style="padding:13px;border-radius:10px;border:0;background:#0B6E4F;color:#FFFFFF;font:700 15px Hind,sans-serif;cursor:pointer">Schedule and send invites</button>
+      <sc-if value="{{saved}}"><p style="font-size:14px;background:#E3F2EC;color:#0B6E4F;border-radius:9px;padding:10px;font-weight:600">Scheduled. {{inviteCount}} workers invited by SMS and in-app. It now appears under Upcoming.</p></sc-if>
+    </section>
+
+    <div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:14px">
+      <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;overflow:hidden">
+        <div style="padding:14px 18px;font-weight:700;font-size:17px">Upcoming</div>
+        <sc-for list="{{upcoming}}" as="u">
+          <div onClick="{{u.pick}}" style="{{u.row}}">
+            <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><b>{{u.title}}</b><span style="font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:#E8EEFC;color:#1D4ED8">{{u.repeat}}</span></div>
+            <p style="font-size:14px;color:#5E6B7D">{{u.when}} · {{u.where}} · {{u.who}}</p>
+            <div style="display:flex;height:8px;border-radius:99px;overflow:hidden;background:#EEF1F5"><span style="{{u.barYes}}"></span><span style="{{u.barNo}}"></span></div>
+            <p style="font-size:13px"><b style="color:#0B6E4F">{{u.yes}} coming</b> · <span style="color:#A3261F">{{u.no}} can’t</span> · <span style="color:#5E6B7D">{{u.wait}} no reply</span></p>
+          </div>
+        </sc-for>
+      </section>
+
+      <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><b style="font-size:17px">{{cur.title}}</b><span style="font-size:14px;color:#5E6B7D">{{cur.when}}</span></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button style="padding:8px 12px;border-radius:9px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 13px Hind,sans-serif;color:#13213C;cursor:pointer">Edit</button>
+          <button style="padding:8px 12px;border-radius:9px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 13px Hind,sans-serif;color:#13213C;cursor:pointer">Send reminder now</button>
+          <button style="padding:8px 12px;border-radius:9px;border:1px solid #CBD2DB;background:#FFFFFF;font:600 13px Hind,sans-serif;color:#13213C;cursor:pointer">Skip this date</button>
+          <button style="padding:8px 12px;border-radius:9px;border:1px solid #E7B3AE;background:#FFFFFF;font:600 13px Hind,sans-serif;color:#A3261F;cursor:pointer">Cancel series</button>
+        </div>
+        <div style="font-size:14px;border:1px solid #E3E6EB;border-radius:10px;overflow:hidden">
+          <sc-for list="{{attendees}}" as="a">
+            <div style="display:flex;justify-content:space-between;gap:8px;padding:9px 12px;border-top:1px solid #E3E6EB"><span>{{a.name}} <span style="color:#5E6B7D">· {{a.cat}}</span></span><b style="{{a.style}}">{{a.status}}</b></div>
+          </sc-for>
+        </div>
+        <p style="font-size:12px;color:#5E6B7D">After the meeting, mark who attended. Workers with a booked job at the meeting time are told they can skip it.</p>
+      </section>
+
+      <section style="background:#FFFFFF;border:1px solid #E3E6EB;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px">
+        <b style="font-size:17px">Past meetings</b>
+        <div style="display:grid;grid-template-columns:1fr auto auto;gap:6px 14px;font-size:14px">
+          <span>Monthly worker meet · September</span><span style="color:#5E6B7D">6 Sep</span><b>71% attended</b>
+          <span>Weekly plumber check-in</span><span style="color:#5E6B7D">7 Oct</span><b>64% attended</b>
+          <span>New worker orientation</span><span style="color:#5E6B7D">4 Oct</span><b>88% attended</b>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+</div>
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1600}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { aud: 'all', rep: 'monthly', mode: 'online', saved: false, cur: 0 }; }
+  renderVals() {
+    const st = this.state;
+    const chip = (on) => 'padding:8px 13px;border-radius:999px;font:600 14px Hind,sans-serif;cursor:pointer;border:1px solid ' + (on ? '#0B6E4F;background:#E3F2EC;color:#0B6E4F' : '#CBD2DB;background:#FFFFFF;color:#13213C');
+    const A = { all: ['All verified workers', 248], cat: ['By category / city', 42], fresh: ['Joined in last 30 days', 37], stars: ['Top performers', 10] };
+    const P = { once: 'One time', weekly: 'Every week', monthly: 'Every month' };
+    const M = { online: 'Online (video link)', venue: 'In person', phone: 'Phone conference' };
+    const U = [
+      { title: 'Monthly worker meet · October', repeat: 'MONTHLY', when: 'Sat 1 Nov, 11:00 AM', where: 'Google Meet', who: 'All verified (248)', yes: 132, no: 21, wait: 95 },
+      { title: 'Weekly plumber check-in', repeat: 'WEEKLY', when: 'Tue 14 Oct, 6:00 PM', where: 'Phone conference', who: 'Plumbers · Delhi NCR (42)', yes: 25, no: 4, wait: 13 },
+      { title: 'New worker orientation', repeat: 'ONE TIME', when: 'Sat 18 Oct, 10:00 AM', where: 'Karvia office, Noida', who: 'Joined in last 30 days (37)', yes: 19, no: 3, wait: 15 }
+    ];
+    const upcoming = U.map((u, i) => {
+      const tot = u.yes + u.no + u.wait;
+      return Object.assign({}, u, {
+        barYes: 'background:#0B6E4F;width:' + (u.yes / tot * 100) + '%', barNo: 'background:#C2362F;width:' + (u.no / tot * 100) + '%',
+        row: 'padding:14px 18px;border-top:1px solid #E3E6EB;display:flex;flex-direction:column;gap:6px;cursor:pointer;' + (i === st.cur ? 'background:#F3FAF7;box-shadow:inset 3px 0 0 #0B6E4F' : ''),
+        pick: () => this.setState({ cur: i })
+      });
+    });
+    const S = { 'Coming': 'color:#0B6E4F', "Can't come": 'color:#A3261F', 'No reply': 'color:#5E6B7D', 'Has a job then': 'color:#8A5A00' };
+    const attendees = [['Rakesh Yadav', 'Plumber', 'Coming'], ['Mohan Singh', 'Plumber', 'Has a job then'], ['Sunita Devi', 'Maid', 'Coming'], ['Arjun Mehta', 'Electrician', "Can't come"], ['Imran Khan', 'Driver', 'No reply']].map(a => ({ name: a[0], cat: a[1], status: a[2], style: S[a[2]] }));
+    return {
+      formTitle: 'Schedule a meeting',
+      openNew: () => this.setState({ saved: false }),
+      audiences: Object.keys(A).map(k => ({ label: A[k][0], style: chip(k === st.aud), pick: () => this.setState({ aud: k, saved: false }) })),
+      showFilter: st.aud === 'cat', inviteCount: A[st.aud][1],
+      repeats: Object.keys(P).map(k => ({ label: P[k], style: chip(k === st.rep), pick: () => this.setState({ rep: k, saved: false }) })),
+      isRepeat: st.rep !== 'once',
+      dateLabel: st.rep === 'monthly' ? 'Day of month' : st.rep === 'weekly' ? 'Day of week' : 'Date',
+      dateValue: st.rep === 'monthly' ? 'First Saturday' : st.rep === 'weekly' ? 'Tuesday' : 'Sat 18 Oct 2026',
+      repeatNote: st.rep === 'monthly' ? 'Next 3 dates: Sat 1 Nov, Sat 6 Dec, Sat 3 Jan. Repeats until you cancel the series.' : 'Next 3 dates: Tue 14 Oct, Tue 21 Oct, Tue 28 Oct. Repeats until you cancel the series.',
+      modes: Object.keys(M).map(k => ({ label: M[k], style: chip(k === st.mode), pick: () => this.setState({ mode: k, saved: false }) })),
+      isOnline: st.mode === 'online', isVenue: st.mode === 'venue',
+      save: () => this.setState({ saved: true }), saved: st.saved,
+      upcoming, cur: U[st.cur], attendees
+    };
+  }
+}
+</script>
+<a href="screens.html" style="position:fixed;right:16px;bottom:16px;z-index:999;padding:10px 14px;border-radius:999px;background:#13213C;color:#FFFFFF;font:600 14px Hind,system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(19,33,60,.5)">All screens</a>
+<script src="support.js"></script>
+</body>
+</html>

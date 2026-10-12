@@ -60,6 +60,7 @@ class Component extends DCLogic {
     const dot = (c) => 'width:10px;height:10px;border-radius:50%;margin-top:7px;flex:none;background:' + c;
     const mk = (t,b,time,c,u,h) => ({ title:t, body:b, time:time, dot:dot(c), row:row(u), href:h });
     return { items: [
+      mk('Your worker is no longer available', 'Your 3:00 PM bathroom fitting needs a new plumber. Choose a new worker or cancel for free.', 'Just now', '#C2362F', true, 'WorkerChange.dc.html'),
       mk('Worker accepted', 'Rakesh Yadav accepted your tap repair request. Confirm the booking.', '2 min', '#0B6E4F', true, 'RequestStatus.dc.html'),
       mk('Searching workers', 'Your fan installation request was sent to 6 electricians nearby.', '5 min', '#F4A51C', true, 'RequestStatus.dc.html'),
       mk('Booking reminder', 'Imran Khan (Driver) arrives Tue 14 Oct at 9:00 AM.', '1 h', '#1D4ED8', false, 'BookingDetail.dc.html'),
